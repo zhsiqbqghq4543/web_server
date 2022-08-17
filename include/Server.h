@@ -1,15 +1,17 @@
+#pragma once
+
 #include "Channel.h"
+#include "Acceptor.h"
 
 class Server
 {
 public:
-    class new_conn_cb; // call_back
-
-public:
-    Server(Eventloop *loop, int fd);
+    Server(Eventloop *loop, const char *ip, const char *port);
     ~Server();
+    void new_connection();
 
 private:
     Eventloop *loop_;
     Channel accept_channel_;
+    Acceptor acceptor_;
 };

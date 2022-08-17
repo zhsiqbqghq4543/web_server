@@ -1,35 +1,17 @@
 #pragma once
 
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <netinet/in.h>
-#include <assert.h>
-
 #include "Server.h"
 
-class Server::new_conn_cb
+Server::Server(Eventloop *loop,
+               const char *ip,
+               const char *port)
+    : acceptor_(ip, port),                      // socket bind listen
+      accept_channel_(loop, acceptor_.get_fd()) // channel
 {
-public:
-    void operator()(int server_fd)
-    {
-        struct sockaddr_in client;
-        socklen_t client_addrlength = sizeof(client);
-
-        int new_fd = accept(server_fd,
-                            reinterpret_cast<struct sockaddr *>(&client),
-                            &client_addrlength);
-        assert(new_fd>0);
-        
-        //new connection new channel new sockaddr_in
-    }
-};
-
-Server::Server(Eventloop *loop, int fd) : accept_channel_(loop, fd)
-{
+    // channel to eventloop (epoll)
     loop->push_Channel(&this->accept_channel_);
-
-    {
-        new_conn_cb read_cb;
-        this->accept_channel_.set_read_callback(read_cb);
-    }
+    // set channel_read_call_back
+    //!!class func  first is this
+    this->accept_channel_.set_read_callback(
+        std::bind(&Acceptor::new_connection, &this->acceptor_, loop));
 }

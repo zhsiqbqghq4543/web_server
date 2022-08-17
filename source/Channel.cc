@@ -18,7 +18,7 @@ void Channel::set_revents(int revents)
     this->revents_ = revents;
 }
 
-void Channel::set_read_callback(std::function<void(int)> cb)
+void Channel::set_read_callback(std::function<void()> cb)
 {
     this->read_call_back = std::move(cb);
 }
@@ -27,7 +27,7 @@ void Channel::handle_event()
 {
     if (revents_ && EPOLLIN)
     {
-        this->read_call_back(this->fd_);
+        this->read_call_back();
     }
     return;
 }

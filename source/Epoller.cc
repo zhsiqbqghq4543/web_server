@@ -1,12 +1,13 @@
 #pragma once
 
+#include "Epoller.h"
+
 #include <assert.h>
 
-#include "Epoller.h"
 Epoller::Epoller(Eventloop *loop_) : owner_loop_(loop_)
 {
     this->epollfd_ = epoll_create(1);
-    this->events_.resize(16); // num of active evetns maxnum once
+    this->events_.resize(16); // num of active evetns will twice  per max
 }
 
 void Epoller::push_channel(Channel *Channel)

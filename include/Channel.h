@@ -1,8 +1,8 @@
 #pragma once
 
-#include <functional>
-
 #include "Eventloop.h"
+
+#include <functional>
 
 class Channel
 {
@@ -12,12 +12,12 @@ public:
     int get_fd();
     void set_revents(int revents);
 
-    void set_read_callback(std::function<void(int)> cb);
+    void set_read_callback(std::function<void()> cb);
     void handle_event();
 
 private:
     int revents_;
     const int fd_;
     int index_;
-    std::function<void(int)> read_call_back;
+    std::function<void()> read_call_back;
 };
