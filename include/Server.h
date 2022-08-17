@@ -3,11 +3,11 @@
 #include "Channel.h"
 #include "Acceptor.h"
 
+
 class Server
 {
 public:
     Server(Eventloop *loop, const char *ip, const char *port);
-    ~Server();
     void new_connection();
 
 private:

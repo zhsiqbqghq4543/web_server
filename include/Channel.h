@@ -4,20 +4,22 @@
 
 #include <functional>
 
+class Eventloop;
+
+
 class Channel
 {
 public:
-    Channel(Eventloop *loop, int fd_);
-    ~Channel();
+    Channel(Eventloop *loop);
     int get_fd();
     void set_revents(int revents);
 
     void set_read_callback(std::function<void()> cb);
     void handle_event();
-
+    void set_fd(int fd);
 private:
     int revents_;
-    const int fd_;
+    int fd_;
     int index_;
     std::function<void()> read_call_back;
 };

@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/cykx/Desktop/web_server/web_server'
+make: Leaving directory '/home/cykx/Desktop/web_server/web_server'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+

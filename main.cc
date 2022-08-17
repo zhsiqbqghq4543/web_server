@@ -1,8 +1,7 @@
-#pragma once
-
 #include "Acceptor.h"
 #include "Server.h"
 #include "Eventloop.h"
+
 
 int main(int argc, char **argv)
 {

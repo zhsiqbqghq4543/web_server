@@ -3,6 +3,7 @@
 #include "Eventloop.h"
 
 #include <netinet/in.h>
+#include<memory>
 
 class Connector
 {
@@ -13,5 +14,6 @@ public:
 private:
     Eventloop *loop_;
     struct sockaddr_in addr_;
-    Channel channel_;
+
+    Channel *channel_;
 };

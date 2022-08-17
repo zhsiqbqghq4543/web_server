@@ -1,11 +1,8 @@
-#pragma once
 
 #include "Channel.h"
 
-Channel::Channel(Eventloop *loop_, int fd) : fd_(fd)
+Channel::Channel(Eventloop *loop_) : fd_(-1), index_(-1), revents_(-1)
 {
-    this->index_ = -1;
-    this->revents_ = -1;
 }
 
 int Channel::get_fd()
@@ -30,4 +27,9 @@ void Channel::handle_event()
         this->read_call_back();
     }
     return;
+}
+
+void Channel::set_fd(int fd)
+{
+    this->fd_ = fd;
 }

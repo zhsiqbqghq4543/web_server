@@ -1,0 +1,3 @@
+/home/cykx/Desktop/web_server/web_server/build/CMakeFiles/web_server.dir
+/home/cykx/Desktop/web_server/web_server/build/CMakeFiles/edit_cache.dir
+/home/cykx/Desktop/web_server/web_server/build/CMakeFiles/rebuild_cache.dir

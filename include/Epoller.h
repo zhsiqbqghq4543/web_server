@@ -6,6 +6,9 @@
 #include <map>
 #include <sys/epoll.h>
 
+class Eventloop;
+class Channel;
+
 class Epoller
 {
 public:
