@@ -2,9 +2,10 @@
 
 #include <string.h>
 #include <assert.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
 #include <stdlib.h>
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <netinet/in.h>
 
 #include "Acceptor.h"
 
@@ -17,6 +18,9 @@ Acceptor::Acceptor(const char *ip, const char *port)
     address_.sin_port = atoi(port);
 
     server_fd_ = socket(PF_INET, SOCK_STREAM, 0);
+    int flags = fcntl(server_fd_, F_GETFL);
+    flags |= O_NONBLOCK; // SETNONBLOCKING
+    fcntl(server_fd_, F_SETFL, flags);
 
     int ret = bind(server_fd_, (struct sockaddr *)&address_, sizeof(address_));
     assert(ret != -1);

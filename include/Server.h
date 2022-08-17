@@ -1,17 +1,15 @@
-#include"Channel.h"
-class Eventloop;
-class SocketFd;
-class Channel;
+#include "Channel.h"
 
 class Server
 {
 public:
-    Server(Eventloop*loop,int fd);
+    class new_conn_cb; // call_back
+
+public:
+    Server(Eventloop *loop, int fd);
     ~Server();
 
 private:
-    Eventloop* loop_;
-    
+    Eventloop *loop_;
     Channel accept_channel_;
-
 };

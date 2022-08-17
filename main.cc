@@ -11,9 +11,11 @@ int main(int argc, char **argv)
 
     Acceptor acceptor_(ip, port);
 
-    Eventloop Eventloop_;//io
+    Eventloop Eventloop_; // io
 
-    Server server_(&Eventloop_,acceptor_.get_server_fd());
+    Server server_(&Eventloop_, acceptor_.get_server_fd());
+
+    Eventloop_.loop();
 
     return 0;
 }
