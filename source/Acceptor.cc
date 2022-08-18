@@ -14,9 +14,9 @@
 
 void Acceptor::set_nonnblocking(int fd)
 {
-    int flags = fcntl(server_fd_, F_GETFL);
+    int flags = fcntl(fd, F_GETFL);
     flags |= O_NONBLOCK; // SETNONBLOCKING
-    fcntl(server_fd_, F_SETFL, flags);
+    fcntl(fd, F_SETFL, flags);
 }
 
 Acceptor::Acceptor(const char *ip, const char *port)
@@ -34,7 +34,7 @@ Acceptor::Acceptor(const char *ip, const char *port)
     int ret = bind(server_fd_, (struct sockaddr *)&address_, sizeof(address_));
     assert(ret != -1);
 
-    ret = listen(server_fd_, 5);
+    ret = listen(server_fd_, 1000000);
     assert(ret != -1);
 }
 
@@ -43,7 +43,6 @@ void Acceptor::new_connection(Eventloop *loop)
     struct sockaddr_in client;
     socklen_t client_addrlength = sizeof(client);
 
-
     int new_fd = accept(this->server_fd_,
                         (struct sockaddr *)(&client),
                         &client_addrlength);
@@ -51,14 +50,14 @@ void Acceptor::new_connection(Eventloop *loop)
 
     this->set_nonnblocking(new_fd);
 
-    std::shared_ptr<Connector> s_new_conn=std::make_shared<Connector>(loop, client, new_fd);
+    std::shared_ptr<Connector> s_new_conn = std::make_shared<Connector>(loop, client, new_fd);
 
     std::string name = inet_ntoa(client.sin_addr);
-    name += std::to_string(client.sin_port);
+    name = name + ' ' + std::to_string(client.sin_port);
 
     this->conn_map_[name] = s_new_conn;
 
-    std::cout << name << "new conn :in" << __TIME__ << "   !!! " << std::endl;
+    std::cout << name << " --->   is the   new conn :in    " << __TIME__ << "..." << std::endl;
 }
 
 int Acceptor::get_fd()

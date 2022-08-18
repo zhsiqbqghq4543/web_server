@@ -14,6 +14,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/cykx/Desktop/web_server/web_server/source/Connector.cc" "CMakeFiles/web_server.dir/source/Connector.cc.o" "gcc" "CMakeFiles/web_server.dir/source/Connector.cc.o.d"
   "/home/cykx/Desktop/web_server/web_server/source/Epoller.cc" "CMakeFiles/web_server.dir/source/Epoller.cc.o" "gcc" "CMakeFiles/web_server.dir/source/Epoller.cc.o.d"
   "/home/cykx/Desktop/web_server/web_server/source/Eventloop.cc" "CMakeFiles/web_server.dir/source/Eventloop.cc.o" "gcc" "CMakeFiles/web_server.dir/source/Eventloop.cc.o.d"
+  "/home/cykx/Desktop/web_server/web_server/source/HttpHandle.cc" "CMakeFiles/web_server.dir/source/HttpHandle.cc.o" "gcc" "CMakeFiles/web_server.dir/source/HttpHandle.cc.o.d"
+  "/home/cykx/Desktop/web_server/web_server/source/HttpRequest.cc" "CMakeFiles/web_server.dir/source/HttpRequest.cc.o" "gcc" "CMakeFiles/web_server.dir/source/HttpRequest.cc.o.d"
   "/home/cykx/Desktop/web_server/web_server/source/Server.cc" "CMakeFiles/web_server.dir/source/Server.cc.o" "gcc" "CMakeFiles/web_server.dir/source/Server.cc.o.d"
   )
 

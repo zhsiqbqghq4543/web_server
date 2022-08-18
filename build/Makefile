@@ -273,6 +273,54 @@ source/Eventloop.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/source/Eventloop.cc.s
 .PHONY : source/Eventloop.cc.s
 
+source/HttpHandle.o: source/HttpHandle.cc.o
+.PHONY : source/HttpHandle.o
+
+# target to build an object file
+source/HttpHandle.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/source/HttpHandle.cc.o
+.PHONY : source/HttpHandle.cc.o
+
+source/HttpHandle.i: source/HttpHandle.cc.i
+.PHONY : source/HttpHandle.i
+
+# target to preprocess a source file
+source/HttpHandle.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/source/HttpHandle.cc.i
+.PHONY : source/HttpHandle.cc.i
+
+source/HttpHandle.s: source/HttpHandle.cc.s
+.PHONY : source/HttpHandle.s
+
+# target to generate assembly for a file
+source/HttpHandle.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/source/HttpHandle.cc.s
+.PHONY : source/HttpHandle.cc.s
+
+source/HttpRequest.o: source/HttpRequest.cc.o
+.PHONY : source/HttpRequest.o
+
+# target to build an object file
+source/HttpRequest.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/source/HttpRequest.cc.o
+.PHONY : source/HttpRequest.cc.o
+
+source/HttpRequest.i: source/HttpRequest.cc.i
+.PHONY : source/HttpRequest.i
+
+# target to preprocess a source file
+source/HttpRequest.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/source/HttpRequest.cc.i
+.PHONY : source/HttpRequest.cc.i
+
+source/HttpRequest.s: source/HttpRequest.cc.s
+.PHONY : source/HttpRequest.s
+
+# target to generate assembly for a file
+source/HttpRequest.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/source/HttpRequest.cc.s
+.PHONY : source/HttpRequest.cc.s
+
 source/Server.o: source/Server.cc.o
 .PHONY : source/Server.o
 
@@ -324,6 +372,12 @@ help:
 	@echo "... source/Eventloop.o"
 	@echo "... source/Eventloop.i"
 	@echo "... source/Eventloop.s"
+	@echo "... source/HttpHandle.o"
+	@echo "... source/HttpHandle.i"
+	@echo "... source/HttpHandle.s"
+	@echo "... source/HttpRequest.o"
+	@echo "... source/HttpRequest.i"
+	@echo "... source/HttpRequest.s"
 	@echo "... source/Server.o"
 	@echo "... source/Server.i"
 	@echo "... source/Server.s"

@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Aug 17 19:29:15 2022
+# Make data base, printed on Thu Aug 18 21:56:46 2022
 
 # Variables
 
@@ -61,13 +61,13 @@ VSCODE_CODE_CACHE_PATH = /home/cykx/.config/Code/CachedData/3b889b090b5ad5793f52
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.HKIQQ1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.1YOKQ1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.108
+GNOME_TERMINAL_SERVICE = :1.98
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -99,13 +99,13 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 2833
+VSCODE_PID = 2987
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/cykx-virtual-machine:@/tmp/.ICE-unix/1838,unix/cykx-virtual-machine:/tmp/.ICE-unix/1838
+SESSION_MANAGER = local/cykx-virtual-machine:@/tmp/.ICE-unix/1811,unix/cykx-virtual-machine:/tmp/.ICE-unix/1811
 # automatic
 *F = $(notdir $*)
 # environment
@@ -129,7 +129,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/eabcd27d_7cee_44f2_9a2f_b02a2c076c50
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/cc43641d_9af7_4242_8d2a_3a0ed3f4c2a0
 # environment
 MAKELEVEL := 0
 # default
@@ -185,7 +185,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 2017
+SYSTEMD_EXEC_PID = 2108
 # environment
 DISPLAY = :0
 # environment
@@ -278,6 +278,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # No implicit rules.
 
 # Files
+ 
 
 # Not a target:
 Makefile:
@@ -298,7 +299,6 @@ all:
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has not been updated.
- 
 
 # Not a target:
 makefile:
@@ -328,6 +328,6 @@ GNUmakefile:
 # strcache performance: lookups = 20 / hit rate = 15%
 # hash-table stats:
 # Load=17/8192=0%, Rehash=0, Collisions=0/20=0%
-# Finished Make data base on Wed Aug 17 19:29:15 2022
+# Finished Make data base on Thu Aug 18 21:56:46 2022
 
  

@@ -2,7 +2,7 @@
 #include "Epoller.h"
 
 #include <assert.h>
-#include<iostream>
+#include <iostream>
 
 Epoller::Epoller(Eventloop *loop_) : owner_loop_(loop_)
 {
@@ -22,19 +22,15 @@ void Epoller::push_channel(Channel *Channel)
     // EPOLLIN|EPOLLET
 
     epoll_ctl(this->epollfd_, EPOLL_CTL_ADD, fd, &event);
-    std::cout<<"epollfd:     "<<epollfd_<<std::endl;
-    std::cout<<"fd:     "<<fd<<std::endl;
 }
 
 void Epoller::epoll(std::vector<Channel *> &avtive_channels_)
 {
 
-    std::cout<<"epollfd"<<epollfd_<<std::endl;                    
     int events_num = epoll_wait(this->epollfd_,
                                 &*this->events_.begin(),
                                 static_cast<int>(events_.size()),
                                 -1);
-    std::cout<<"void Epoller::epoll(std::vector<Channel *> &avtive_channels_)"<<std::endl;
     assert(events_num >= 0);
     if (events_num > 0)
     {

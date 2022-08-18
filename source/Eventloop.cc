@@ -23,7 +23,6 @@ void Eventloop::loop()
         active_channels_.clear();
 
         this->epoller_->epoll(this->active_channels_);
-        std::cout<<"actice size:       "<<active_channels_.size()<<std::endl;
         for (auto channel : this->active_channels_)
         {
             this->current_active_channels_ = channel;
