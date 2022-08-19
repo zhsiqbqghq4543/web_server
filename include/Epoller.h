@@ -17,6 +17,7 @@ public:
     void epoll(std::vector<Channel *> &avtive_channels_);
     void fill_active_channels(int event_num_,
                               std::vector<Channel *> &active_channels_);
+    void rm_channel(int fd);
 
 private:
     Eventloop *owner_loop_; // owner

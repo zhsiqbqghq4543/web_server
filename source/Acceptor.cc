@@ -19,7 +19,18 @@ void Acceptor::set_nonnblocking(int fd)
     fcntl(fd, F_SETFL, flags);
 }
 
-Acceptor::Acceptor(const char *ip, const char *port)
+void Acceptor::rm_conn_from_map(std::shared_ptr<Connector> Conn)
+{
+    // conn io
+    this->conn_map_.erase(Conn.get()->get_name());
+
+    // main io
+    // this->main_loop_();
+    return;
+}
+
+Acceptor::Acceptor(const char *ip, const char *port, Eventloop *main_loop)
+    : main_loop_(main_loop)
 {
     struct sockaddr_in address_;
     memset(&address_, 0, sizeof(address_));
@@ -50,10 +61,12 @@ void Acceptor::new_connection(Eventloop *loop)
 
     this->set_nonnblocking(new_fd);
 
-    std::shared_ptr<Connector> s_new_conn = std::make_shared<Connector>(loop, client, new_fd);
-
     std::string name = inet_ntoa(client.sin_addr);
     name = name + ' ' + std::to_string(client.sin_port);
+
+    std::shared_ptr<Connector> s_new_conn = std::make_shared<Connector>(loop, client, new_fd, name);
+
+    s_new_conn.get()->rm_call_back_to_acceptor = std::bind(&Acceptor::rm_conn_from_map, this, s_new_conn); // callback
 
     this->conn_map_[name] = s_new_conn;
 

@@ -6,8 +6,7 @@
 Server::Server(Eventloop *loop,
                const char *ip,
                const char *port)
-    : acceptor_(ip, port) // socket bind listen
-      ,
+    : acceptor_(ip, port, loop), // socket bind listen
       accept_channel_(loop)
 {
 

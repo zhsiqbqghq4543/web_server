@@ -7,7 +7,6 @@ Eventloop::Eventloop() : runing(true),
                          current_active_channels_(nullptr)
 {
     epoller_ = new Epoller(this);
-    this->channels_.reserve(1000000);
     this->active_channels_.reserve(1000000);
 }
 
@@ -30,5 +29,11 @@ void Eventloop::loop()
         }
 
         current_active_channels_ = nullptr;
+        // delete
     }
+}
+
+void Eventloop::rm_channel(int fd)
+{
+    this->epoller_->rm_channel(fd);
 }

@@ -59,3 +59,10 @@ void Epoller::fill_active_channels(int event_num_,
         }
     }
 }
+
+void Epoller::rm_channel(int fd)
+{
+    this->channel_map_.erase(fd);
+    epoll_ctl(this->epollfd_, EPOLL_CTL_DEL, fd, NULL);
+    std::cout << fd << " has closed    " << std::endl;
+}
