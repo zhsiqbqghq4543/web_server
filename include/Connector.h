@@ -1,9 +1,10 @@
 #pragma once
 
 #include "Eventloop.h"
+#include "HttpHandle.h"
 
 #include <netinet/in.h>
-#include<memory>
+#include <memory>
 
 class Connector
 {
@@ -16,4 +17,6 @@ private:
     struct sockaddr_in addr_;
 
     Channel *channel_;
+
+    HttpHandle *http_handle_;
 };

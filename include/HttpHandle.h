@@ -3,6 +3,7 @@
 #include "HttpRequest.h"
 
 #include <memory>
+#include <string>
 
 class HttpRequest;
 
@@ -18,8 +19,9 @@ public:
     };
 
     HttpHandle();
-    bool recv_message(int fd);
-
+    bool recv_message(std::string &recv_str);
+    bool got_all();
+    void cout_message();
 private:
     RequestState request_state_;
     std::unique_ptr<HttpRequest> http_request_;

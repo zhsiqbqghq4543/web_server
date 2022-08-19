@@ -8,7 +8,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "aaa.h"
 
 Connector::Connector(Eventloop *loop, sockaddr_in addr, int new_fd)
     : addr_(addr), loop_(loop)
@@ -21,6 +20,9 @@ Connector::Connector(Eventloop *loop, sockaddr_in addr, int new_fd)
     // channel_.set_read_callback();
     channel_->set_read_callback(
         std::bind(&Connector::new_message, this));
+
+    // http_request
+    this->http_handle_ = new HttpHandle();
 }
 
 void Connector::new_message()
@@ -38,4 +40,18 @@ void Connector::new_message()
             str += std::move(tmp_str);
     }
     std::cout << str;
+
+    if (this->http_handle_->recv_message(str) == false)
+    {
+        const char *err = "HTTP/1.1 400 Bad Request\r\n\r\n";
+        send(this->channel_->get_fd(), err, sizeof(err), 0);
+        // close
+        // shutdown()
+    }
+    if (this->http_handle_->got_all() == true)
+    {
+        std::cout << "\nnow http message got_all:    \n";
+        this->http_handle_->cout_message();
+        // request
+    }
 }

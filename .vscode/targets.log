@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Aug 18 21:56:46 2022
+# Make data base, printed on Fri Aug 19 12:35:05 2022
 
 # Variables
 
@@ -51,7 +51,7 @@ PWD = /home/cykx/Desktop/web_server/web_server
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-OLDPWD = /home/cykx/Desktop/web_server/web_server
+OLDPWD = /home/cykx/Desktop
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # automatic
@@ -61,13 +61,13 @@ VSCODE_CODE_CACHE_PATH = /home/cykx/.config/Code/CachedData/3b889b090b5ad5793f52
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.1YOKQ1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.ZHR1Q1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.98
+GNOME_TERMINAL_SERVICE = :1.137
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -99,13 +99,13 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 2987
+VSCODE_PID = 3595
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/cykx-virtual-machine:@/tmp/.ICE-unix/1811,unix/cykx-virtual-machine:/tmp/.ICE-unix/1811
+SESSION_MANAGER = local/cykx-virtual-machine:@/tmp/.ICE-unix/1830,unix/cykx-virtual-machine:/tmp/.ICE-unix/1830
 # automatic
 *F = $(notdir $*)
 # environment
@@ -129,7 +129,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/cc43641d_9af7_4242_8d2a_3a0ed3f4c2a0
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/5ef6a5c7_3c88_456d_ae7f_5238e39db7b3
 # environment
 MAKELEVEL := 0
 # default
@@ -185,7 +185,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 2108
+SYSTEMD_EXEC_PID = 2105
 # environment
 DISPLAY = :0
 # environment
@@ -328,6 +328,6 @@ GNUmakefile:
 # strcache performance: lookups = 20 / hit rate = 15%
 # hash-table stats:
 # Load=17/8192=0%, Rehash=0, Collisions=0/20=0%
-# Finished Make data base on Thu Aug 18 21:56:46 2022
+# Finished Make data base on Fri Aug 19 12:35:05 2022
 
  
