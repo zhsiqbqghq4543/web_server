@@ -24,6 +24,19 @@ Connector::Connector(Eventloop *loop, sockaddr_in addr, int new_fd, std::string 
     // http_request
     this->http_handle_ = new HttpHandle();
 }
+Connector::~Connector()
+{
+    delete this->channel_;
+    delete this->http_handle_;
+    std::cout << "\n"
+              << conn_name_ << "\tconnector\thas\tbeen\tdestroyed\n"
+              << std::endl;
+}
+
+void Connector::conn_destroy()
+{
+    std::cout << "destroying...";
+}
 
 void Connector::close_connection()
 {
@@ -46,7 +59,9 @@ void Connector::new_message()
         recv_size = recv(this->channel_->get_fd(), ptr, size + 1, 0);
         if (recv_size == 0)
         {
+            std::cout << "\nget close message\n";
             close_connection();
+
             return;
         }
         if (recv_size > 0)

@@ -19,12 +19,16 @@ void Acceptor::set_nonnblocking(int fd)
     fcntl(fd, F_SETFL, flags);
 }
 
-void Acceptor::rm_conn_from_map(std::shared_ptr<Connector> Conn)
+void Acceptor::rm_conn_from_map(std::string str)
 {
     // conn io
-    this->conn_map_.erase(Conn.get()->get_name());
+    std::shared_ptr<Connector> Conn=this->conn_map_[str];
+    this->conn_map_.erase(str);
 
     // main io
+    main_loop_->push_func(
+        std::bind(&Connector::conn_destroy, Conn));
+
     // this->main_loop_();
     return;
 }
@@ -66,10 +70,10 @@ void Acceptor::new_connection(Eventloop *loop)
 
     std::shared_ptr<Connector> s_new_conn = std::make_shared<Connector>(loop, client, new_fd, name);
 
-    s_new_conn.get()->rm_call_back_to_acceptor = std::bind(&Acceptor::rm_conn_from_map, this, s_new_conn); // callback
+    s_new_conn.get()->rm_call_back_to_acceptor = std::bind(&Acceptor::rm_conn_from_map, this, name); // callback
 
-    this->conn_map_[name] = s_new_conn;
-
+    this->conn_map_[name] = std::move(s_new_conn);
+    
     std::cout << name << " --->   is the   new conn :in    " << __TIME__ << "..." << std::endl;
 }
 

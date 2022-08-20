@@ -15,9 +15,11 @@ public:
 
 public:
     Connector(Eventloop *loop, sockaddr_in addr_, int new_fd, std::string &conn_name);
+    ~Connector();
     void new_message();
     void close_connection();
     std::string get_name();
+    void conn_destroy();
 
 private:
     std::string conn_name_;

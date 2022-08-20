@@ -8,6 +8,11 @@ Epoller::Epoller(Eventloop *loop_) : owner_loop_(loop_)
 {
     this->epollfd_ = epoll_create(1);
     this->events_.resize(16); // num of active evetns will twice  per max
+
+    epoll_event event;
+    event.data.fd = loop_->get_event_fd();
+    event.events = EPOLLIN;
+    epoll_ctl(this->epollfd_, EPOLL_CTL_ADD, loop_->get_event_fd(), &event);
 }
 
 void Epoller::push_channel(Channel *Channel)
@@ -64,5 +69,10 @@ void Epoller::rm_channel(int fd)
 {
     this->channel_map_.erase(fd);
     epoll_ctl(this->epollfd_, EPOLL_CTL_DEL, fd, NULL);
-    std::cout << fd << " has closed    " << std::endl;
+    std::cout <<"delete from epoll : fd\t"<< fd << "has\tclosed\n";
+}
+
+int Epoller::get_epollfd()
+{
+    return this->epollfd_;
 }

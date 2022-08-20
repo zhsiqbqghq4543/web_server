@@ -1,10 +1,15 @@
 
 #include "Channel.h"
 
+#include <unistd.h>
+
 Channel::Channel(Eventloop *loop_) : fd_(-1), index_(-1), revents_(-1)
 {
 }
-
+Channel::~Channel()
+{
+    close(this->fd_);
+}
 int Channel::get_fd()
 {
     return this->fd_;

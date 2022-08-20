@@ -18,7 +18,7 @@ public:
     void fill_active_channels(int event_num_,
                               std::vector<Channel *> &active_channels_);
     void rm_channel(int fd);
-
+    int get_epollfd();
 private:
     Eventloop *owner_loop_; // owner
     int epollfd_;

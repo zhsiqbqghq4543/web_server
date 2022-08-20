@@ -15,7 +15,8 @@ public:
     void new_connection(Eventloop *loop);
     int get_fd();
     void set_nonnblocking(int fd);
-    void rm_conn_from_map(std::shared_ptr<Connector> Conn);
+    void rm_conn_from_map(std::string str);
+    void destroy_conn(std::shared_ptr<Connector> &Conn);
 private:
     Eventloop *main_loop_;
     int server_fd_;
