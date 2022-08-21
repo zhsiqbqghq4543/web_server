@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/cykx/Desktop/web_server/web_server/main.cc" "CMakeFiles/web_server.dir/main.cc.o" "gcc" "CMakeFiles/web_server.dir/main.cc.o.d"
   "/home/cykx/Desktop/web_server/web_server/source/Acceptor.cc" "CMakeFiles/web_server.dir/source/Acceptor.cc.o" "gcc" "CMakeFiles/web_server.dir/source/Acceptor.cc.o.d"
+  "/home/cykx/Desktop/web_server/web_server/source/Buffer.cc" "CMakeFiles/web_server.dir/source/Buffer.cc.o" "gcc" "CMakeFiles/web_server.dir/source/Buffer.cc.o.d"
   "/home/cykx/Desktop/web_server/web_server/source/Channel.cc" "CMakeFiles/web_server.dir/source/Channel.cc.o" "gcc" "CMakeFiles/web_server.dir/source/Channel.cc.o.d"
   "/home/cykx/Desktop/web_server/web_server/source/Connector.cc" "CMakeFiles/web_server.dir/source/Connector.cc.o" "gcc" "CMakeFiles/web_server.dir/source/Connector.cc.o.d"
   "/home/cykx/Desktop/web_server/web_server/source/Epoller.cc" "CMakeFiles/web_server.dir/source/Epoller.cc.o" "gcc" "CMakeFiles/web_server.dir/source/Epoller.cc.o.d"

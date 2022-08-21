@@ -97,10 +97,24 @@ CMakeFiles/web_server.dir/source/Acceptor.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/web_server.dir/source/Acceptor.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cykx/Desktop/web_server/web_server/source/Acceptor.cc -o CMakeFiles/web_server.dir/source/Acceptor.cc.s
 
+CMakeFiles/web_server.dir/source/Buffer.cc.o: CMakeFiles/web_server.dir/flags.make
+CMakeFiles/web_server.dir/source/Buffer.cc.o: ../source/Buffer.cc
+CMakeFiles/web_server.dir/source/Buffer.cc.o: CMakeFiles/web_server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cykx/Desktop/web_server/web_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/web_server.dir/source/Buffer.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/web_server.dir/source/Buffer.cc.o -MF CMakeFiles/web_server.dir/source/Buffer.cc.o.d -o CMakeFiles/web_server.dir/source/Buffer.cc.o -c /home/cykx/Desktop/web_server/web_server/source/Buffer.cc
+
+CMakeFiles/web_server.dir/source/Buffer.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/web_server.dir/source/Buffer.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cykx/Desktop/web_server/web_server/source/Buffer.cc > CMakeFiles/web_server.dir/source/Buffer.cc.i
+
+CMakeFiles/web_server.dir/source/Buffer.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/web_server.dir/source/Buffer.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cykx/Desktop/web_server/web_server/source/Buffer.cc -o CMakeFiles/web_server.dir/source/Buffer.cc.s
+
 CMakeFiles/web_server.dir/source/Channel.cc.o: CMakeFiles/web_server.dir/flags.make
 CMakeFiles/web_server.dir/source/Channel.cc.o: ../source/Channel.cc
 CMakeFiles/web_server.dir/source/Channel.cc.o: CMakeFiles/web_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cykx/Desktop/web_server/web_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/web_server.dir/source/Channel.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cykx/Desktop/web_server/web_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/web_server.dir/source/Channel.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/web_server.dir/source/Channel.cc.o -MF CMakeFiles/web_server.dir/source/Channel.cc.o.d -o CMakeFiles/web_server.dir/source/Channel.cc.o -c /home/cykx/Desktop/web_server/web_server/source/Channel.cc
 
 CMakeFiles/web_server.dir/source/Channel.cc.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/web_server.dir/source/Channel.cc.s: cmake_force
 CMakeFiles/web_server.dir/source/Connector.cc.o: CMakeFiles/web_server.dir/flags.make
 CMakeFiles/web_server.dir/source/Connector.cc.o: ../source/Connector.cc
 CMakeFiles/web_server.dir/source/Connector.cc.o: CMakeFiles/web_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cykx/Desktop/web_server/web_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/web_server.dir/source/Connector.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cykx/Desktop/web_server/web_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/web_server.dir/source/Connector.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/web_server.dir/source/Connector.cc.o -MF CMakeFiles/web_server.dir/source/Connector.cc.o.d -o CMakeFiles/web_server.dir/source/Connector.cc.o -c /home/cykx/Desktop/web_server/web_server/source/Connector.cc
 
 CMakeFiles/web_server.dir/source/Connector.cc.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/web_server.dir/source/Connector.cc.s: cmake_force
 CMakeFiles/web_server.dir/source/Epoller.cc.o: CMakeFiles/web_server.dir/flags.make
 CMakeFiles/web_server.dir/source/Epoller.cc.o: ../source/Epoller.cc
 CMakeFiles/web_server.dir/source/Epoller.cc.o: CMakeFiles/web_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cykx/Desktop/web_server/web_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/web_server.dir/source/Epoller.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cykx/Desktop/web_server/web_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/web_server.dir/source/Epoller.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/web_server.dir/source/Epoller.cc.o -MF CMakeFiles/web_server.dir/source/Epoller.cc.o.d -o CMakeFiles/web_server.dir/source/Epoller.cc.o -c /home/cykx/Desktop/web_server/web_server/source/Epoller.cc
 
 CMakeFiles/web_server.dir/source/Epoller.cc.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/web_server.dir/source/Epoller.cc.s: cmake_force
 CMakeFiles/web_server.dir/source/Eventloop.cc.o: CMakeFiles/web_server.dir/flags.make
 CMakeFiles/web_server.dir/source/Eventloop.cc.o: ../source/Eventloop.cc
 CMakeFiles/web_server.dir/source/Eventloop.cc.o: CMakeFiles/web_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cykx/Desktop/web_server/web_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/web_server.dir/source/Eventloop.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cykx/Desktop/web_server/web_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/web_server.dir/source/Eventloop.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/web_server.dir/source/Eventloop.cc.o -MF CMakeFiles/web_server.dir/source/Eventloop.cc.o.d -o CMakeFiles/web_server.dir/source/Eventloop.cc.o -c /home/cykx/Desktop/web_server/web_server/source/Eventloop.cc
 
 CMakeFiles/web_server.dir/source/Eventloop.cc.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/web_server.dir/source/Eventloop.cc.s: cmake_force
 CMakeFiles/web_server.dir/source/HttpHandle.cc.o: CMakeFiles/web_server.dir/flags.make
 CMakeFiles/web_server.dir/source/HttpHandle.cc.o: ../source/HttpHandle.cc
 CMakeFiles/web_server.dir/source/HttpHandle.cc.o: CMakeFiles/web_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cykx/Desktop/web_server/web_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/web_server.dir/source/HttpHandle.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cykx/Desktop/web_server/web_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/web_server.dir/source/HttpHandle.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/web_server.dir/source/HttpHandle.cc.o -MF CMakeFiles/web_server.dir/source/HttpHandle.cc.o.d -o CMakeFiles/web_server.dir/source/HttpHandle.cc.o -c /home/cykx/Desktop/web_server/web_server/source/HttpHandle.cc
 
 CMakeFiles/web_server.dir/source/HttpHandle.cc.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/web_server.dir/source/HttpHandle.cc.s: cmake_force
 CMakeFiles/web_server.dir/source/HttpRequest.cc.o: CMakeFiles/web_server.dir/flags.make
 CMakeFiles/web_server.dir/source/HttpRequest.cc.o: ../source/HttpRequest.cc
 CMakeFiles/web_server.dir/source/HttpRequest.cc.o: CMakeFiles/web_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cykx/Desktop/web_server/web_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/web_server.dir/source/HttpRequest.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cykx/Desktop/web_server/web_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/web_server.dir/source/HttpRequest.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/web_server.dir/source/HttpRequest.cc.o -MF CMakeFiles/web_server.dir/source/HttpRequest.cc.o.d -o CMakeFiles/web_server.dir/source/HttpRequest.cc.o -c /home/cykx/Desktop/web_server/web_server/source/HttpRequest.cc
 
 CMakeFiles/web_server.dir/source/HttpRequest.cc.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/web_server.dir/source/HttpRequest.cc.s: cmake_force
 CMakeFiles/web_server.dir/source/Server.cc.o: CMakeFiles/web_server.dir/flags.make
 CMakeFiles/web_server.dir/source/Server.cc.o: ../source/Server.cc
 CMakeFiles/web_server.dir/source/Server.cc.o: CMakeFiles/web_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cykx/Desktop/web_server/web_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/web_server.dir/source/Server.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cykx/Desktop/web_server/web_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/web_server.dir/source/Server.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/web_server.dir/source/Server.cc.o -MF CMakeFiles/web_server.dir/source/Server.cc.o.d -o CMakeFiles/web_server.dir/source/Server.cc.o -c /home/cykx/Desktop/web_server/web_server/source/Server.cc
 
 CMakeFiles/web_server.dir/source/Server.cc.i: cmake_force
@@ -199,6 +213,7 @@ CMakeFiles/web_server.dir/source/Server.cc.s: cmake_force
 web_server_OBJECTS = \
 "CMakeFiles/web_server.dir/main.cc.o" \
 "CMakeFiles/web_server.dir/source/Acceptor.cc.o" \
+"CMakeFiles/web_server.dir/source/Buffer.cc.o" \
 "CMakeFiles/web_server.dir/source/Channel.cc.o" \
 "CMakeFiles/web_server.dir/source/Connector.cc.o" \
 "CMakeFiles/web_server.dir/source/Epoller.cc.o" \
@@ -212,6 +227,7 @@ web_server_EXTERNAL_OBJECTS =
 
 web_server: CMakeFiles/web_server.dir/main.cc.o
 web_server: CMakeFiles/web_server.dir/source/Acceptor.cc.o
+web_server: CMakeFiles/web_server.dir/source/Buffer.cc.o
 web_server: CMakeFiles/web_server.dir/source/Channel.cc.o
 web_server: CMakeFiles/web_server.dir/source/Connector.cc.o
 web_server: CMakeFiles/web_server.dir/source/Epoller.cc.o
@@ -221,7 +237,7 @@ web_server: CMakeFiles/web_server.dir/source/HttpRequest.cc.o
 web_server: CMakeFiles/web_server.dir/source/Server.cc.o
 web_server: CMakeFiles/web_server.dir/build.make
 web_server: CMakeFiles/web_server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cykx/Desktop/web_server/web_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable web_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cykx/Desktop/web_server/web_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable web_server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/web_server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

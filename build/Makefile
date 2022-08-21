@@ -177,6 +177,30 @@ source/Acceptor.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/source/Acceptor.cc.s
 .PHONY : source/Acceptor.cc.s
 
+source/Buffer.o: source/Buffer.cc.o
+.PHONY : source/Buffer.o
+
+# target to build an object file
+source/Buffer.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/source/Buffer.cc.o
+.PHONY : source/Buffer.cc.o
+
+source/Buffer.i: source/Buffer.cc.i
+.PHONY : source/Buffer.i
+
+# target to preprocess a source file
+source/Buffer.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/source/Buffer.cc.i
+.PHONY : source/Buffer.cc.i
+
+source/Buffer.s: source/Buffer.cc.s
+.PHONY : source/Buffer.s
+
+# target to generate assembly for a file
+source/Buffer.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/source/Buffer.cc.s
+.PHONY : source/Buffer.cc.s
+
 source/Channel.o: source/Channel.cc.o
 .PHONY : source/Channel.o
 
@@ -360,6 +384,9 @@ help:
 	@echo "... source/Acceptor.o"
 	@echo "... source/Acceptor.i"
 	@echo "... source/Acceptor.s"
+	@echo "... source/Buffer.o"
+	@echo "... source/Buffer.i"
+	@echo "... source/Buffer.s"
 	@echo "... source/Channel.o"
 	@echo "... source/Channel.i"
 	@echo "... source/Channel.s"

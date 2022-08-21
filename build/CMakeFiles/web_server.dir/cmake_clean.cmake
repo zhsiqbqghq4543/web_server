@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/web_server.dir/main.cc.o.d"
   "CMakeFiles/web_server.dir/source/Acceptor.cc.o"
   "CMakeFiles/web_server.dir/source/Acceptor.cc.o.d"
+  "CMakeFiles/web_server.dir/source/Buffer.cc.o"
+  "CMakeFiles/web_server.dir/source/Buffer.cc.o.d"
   "CMakeFiles/web_server.dir/source/Channel.cc.o"
   "CMakeFiles/web_server.dir/source/Channel.cc.o.d"
   "CMakeFiles/web_server.dir/source/Connector.cc.o"
