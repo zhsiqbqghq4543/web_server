@@ -23,19 +23,21 @@ Connector::Connector(Eventloop *loop, sockaddr_in addr, int new_fd, std::string 
 
     // http_request
     this->http_handle_ = new HttpHandle();
+    // buffer
+    this->input_buffer_ = new Buffer();
 }
 Connector::~Connector()
 {
     delete this->channel_;
     delete this->http_handle_;
+    delete this->input_buffer_;
     std::cout << "\n"
-              << conn_name_ << "\tconnector\thas\tbeen\tdestroyed\n"
-              << std::endl;
+              << conn_name_ << "\tconnector\thas\tbeen\tdestroyed" << std::endl;
 }
 
 void Connector::conn_destroy()
 {
-    std::cout << "destroying...";
+    std::cout << "destroying...\n";
 }
 
 void Connector::close_connection()
@@ -48,31 +50,20 @@ void Connector::close_connection()
 
 void Connector::new_message()
 {
-    std::string str;
-    str.reserve(1024);
-    int recv_size = 1;
-    int size = 255;
-    while (recv_size > 0)
+    int recv_size = this->input_buffer_->read_fd(this->channel_->get_fd());
+    if (recv_size != 0)
+        std::cout << "recv\tmessage\t" << recv_size << std::endl;
+    if (recv_size == 0)
     {
-        std::string tmp_str(size, ' ');
-        char *ptr = &*(tmp_str.begin());
-        recv_size = recv(this->channel_->get_fd(), ptr, size + 1, 0);
-        if (recv_size == 0)
-        {
-            std::cout << "\nget close message\n";
-            close_connection();
+        std::cout << "\nget close message\n";
+        close_connection();
 
-            return;
-        }
-        if (recv_size > 0)
-            str += std::move(tmp_str);
+        return;
     }
-    std::cout << str;
-
-    if (this->http_handle_->recv_message(str) == false)
+    if (this->http_handle_->recv_message(this->input_buffer_) == false)
     {
         const char *err = "HTTP/1.1 400 Bad Request\r\n\r\n";
-        send(this->channel_->get_fd(), err, sizeof(err), 0);
+        send(this->channel_->get_fd(), err, sizeof(err), 0); // todo
         // close
         // shutdown()
     }

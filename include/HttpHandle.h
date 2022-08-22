@@ -1,6 +1,7 @@
 #pragma once
 
 #include "HttpRequest.h"
+#include "Buffer.h"
 
 #include <memory>
 #include <string>
@@ -19,9 +20,10 @@ public:
     };
 
     HttpHandle();
-    bool recv_message(std::string &recv_str);
+    bool recv_message(Buffer *input_buffer);
     bool got_all();
     void cout_message();
+
 private:
     RequestState request_state_;
     std::unique_ptr<HttpRequest> http_request_;

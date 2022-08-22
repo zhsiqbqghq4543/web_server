@@ -171,6 +171,7 @@ CMakeFiles/web_server.dir/source/Server.cc.o: \
  /home/cykx/Desktop/web_server/web_server/include/Connector.h \
  /home/cykx/Desktop/web_server/web_server/include/HttpHandle.h \
  /home/cykx/Desktop/web_server/web_server/include/HttpRequest.h \
+ /home/cykx/Desktop/web_server/web_server/include/Buffer.h \
  /usr/include/c++/11/memory \
  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
  /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \

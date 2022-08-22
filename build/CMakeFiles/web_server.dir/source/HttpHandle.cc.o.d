@@ -134,8 +134,9 @@ CMakeFiles/web_server.dir/source/HttpHandle.cc.o: \
  /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc /usr/include/c++/11/memory \
- /usr/include/c++/11/bits/stl_tempbuf.h \
+ /usr/include/c++/11/bits/vector.tcc \
+ /home/cykx/Desktop/web_server/web_server/include/Buffer.h \
+ /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_tempbuf.h \
  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
  /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \
  /usr/include/c++/11/bits/uses_allocator.h \

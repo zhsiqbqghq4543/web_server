@@ -2,6 +2,7 @@
 
 #include "Eventloop.h"
 #include "HttpHandle.h"
+#include "Buffer.h"
 
 #include <netinet/in.h>
 #include <memory>
@@ -28,4 +29,5 @@ private:
     Eventloop *loop_;
     Channel *channel_;
     HttpHandle *http_handle_;
+    Buffer* input_buffer_;
 };

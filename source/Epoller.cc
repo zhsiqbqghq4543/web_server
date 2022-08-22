@@ -69,7 +69,7 @@ void Epoller::rm_channel(int fd)
 {
     this->channel_map_.erase(fd);
     epoll_ctl(this->epollfd_, EPOLL_CTL_DEL, fd, NULL);
-    std::cout <<"delete from epoll : fd\t"<< fd << "has\tclosed\n";
+    std::cout <<"delete from epoll : fd\t"<< fd << "\thas\tclosed\n";
 }
 
 int Epoller::get_epollfd()

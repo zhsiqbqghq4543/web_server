@@ -1,5 +1,6 @@
 
 #include "HttpHandle.h"
+#include "Buffer.h"
 
 #include <iostream>
 
@@ -21,68 +22,56 @@ bool HttpHandle::got_all()
     return this->request_state_ == null_data;
 }
 
-bool HttpHandle::recv_message(std::string &recv_str)
+bool HttpHandle::recv_message(Buffer *input_buffer)
 {
-    size_t ptr = 0;
-    size_t size = recv_str.size();
+    
+    //std::cout << input_buffer->read_index_ << std::endl;
+    //std::cout << input_buffer->write_index_ << std::endl;
+    //for (auto c : input_buffer->data_vec_)
+        //std::cout << c;
+    //std::cout << std::endl;
+    //std::cout << input_buffer->data_vec_[0] << std::endl;
+    //std::cout << input_buffer->data_vec_[input_buffer->read_index_] << std::endl;
+    
+    char *line_data = nullptr;
 
-    while (ptr < size)
+    int line_size = input_buffer->get_one_line(line_data);
+    //std::cout << line_size << std::endl;
+    while (line_size != 0)
     {
+        std::string recv_str(line_size, 'a');
+        for (int i = 0; i < line_size; ++i)
+        {
+            recv_str[i] = line_data[i];
+        }
+        //std::cout << recv_str << '\n';
         if (this->request_state_ == request_line_data)
         {
-            size_t new_ptr = recv_str.find("\r\n");
-            if (new_ptr == std::string::npos)
-            {
-                ptr = size;
-                break;
-            }
-            new_ptr++;
 
-            if (http_request_.get()->init_request_line(recv_str, 0, new_ptr) == false)
+            if (http_request_.get()->init_request_line(recv_str) == false)
             {
-                ptr = size;
-                break;
+                return false;
             }
-
-            ptr = new_ptr + 1;
             request_state_ = headers_data;
         }
         else if (this->request_state_ == headers_data)
         {
-            if (recv_str[ptr] == '\r' && recv_str[ptr + 1] == '\n')
+            if (recv_str == "\r\n")
             {
                 request_state_ = body_data;
-                ptr += 2;
-                if (ptr == size) // only get //TODO
-                    this->request_state_ = null_data;
-
                 continue;
             }
-
-            size_t new_ptr = recv_str.find("\r\n", ptr);
-            if (new_ptr == std::string::npos)
+            if (http_request_.get()->push_header_line(recv_str) == false)
             {
-                ptr = size;
-                break;
+                return false;
             }
-            new_ptr++;
-
-            if (http_request_.get()->push_header_line(recv_str, ptr, new_ptr) == false)
-            {
-                ptr = size;
-                break;
-            }
-
-            ptr = new_ptr + 1;
         }
-        else if (this->request_state_ == body_data)
-        {
-            http_request_.get()->push_body_line(recv_str, ptr);
-            this->request_state_ = null_data;
-            ptr = size;
-        }
+        line_size = input_buffer->get_one_line(line_data);
     }
-    if (ptr < size)
-        return true;
-    return false;
+    if (this->request_state_ == body_data)
+    {
+        input_buffer->clear();
+        request_state_ = null_data;
+    }
+    return true;
 }

@@ -53,14 +53,14 @@ void HttpRequest::set_version(std::string s)
     }
 }
 
-bool HttpRequest::init_request_line(std::string &str, int begin, int end)
+bool HttpRequest::init_request_line(std::string &str)
 {
     // std::cout << "\ninit_request_line\n";
 
     int ptr_r = str.find(' ');
-    this->set_type(str.substr(begin, ptr_r));
+    this->set_type(str.substr(0, ptr_r));
 
-    // std::cout << str.substr(begin, ptr_r) << std::endl;
+     //std::cout << str.substr(0, ptr_r) << std::endl;
 
     int ptr_l = str.find('/');
     ptr_r = str.find(' ', ptr_l) - 1;
@@ -68,22 +68,22 @@ bool HttpRequest::init_request_line(std::string &str, int begin, int end)
 
     // std::cout << str.substr(ptr_l, ptr_r - ptr_l + 1) << std::endl;
 
-    this->set_version(str.substr(end - 4, 3));
+    this->set_version(str.substr(str.size()-5, 3));
 
-    // std::cout << str.substr(end - 4, 3) << std::endl;
+    // std::cout << str.substr(str.size()-5, 3) << std::endl;
 
     if (this->version_ != Unknown && this->request_type_ != Null)
         return true;
     return false;
 }
 
-bool HttpRequest::push_header_line(std::string &str, int begin, int end)
+bool HttpRequest::push_header_line(std::string &str)
 {
-    this->vec.push_back(str.substr(begin, end - begin + 1));
+    this->vec.push_back(str);
     return true;
 }
 
-bool HttpRequest::push_body_line(std::string &str, int begin)
+bool HttpRequest::push_body_line(std::string &str)
 {
     // TODO
     return true;

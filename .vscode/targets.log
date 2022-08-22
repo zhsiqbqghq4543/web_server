@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Aug 21 22:26:28 2022
+# Make data base, printed on Mon Aug 22 14:33:47 2022
 
 # Variables
 
@@ -61,19 +61,19 @@ VSCODE_CODE_CACHE_PATH = /home/cykx/.config/Code/CachedData/e4503b30fc78200f846c
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.WUZGR1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.FA2LR1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.179
+GNOME_TERMINAL_SERVICE = :1.121
 # makefile
 MAKEFLAGS = pqrR
 # makefile
 CURDIR := /home/cykx/Desktop/web_server/web_server
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # automatic
@@ -99,13 +99,13 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 4917
+VSCODE_PID = 3122
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/cykx-virtual-machine:@/tmp/.ICE-unix/2093,unix/cykx-virtual-machine:/tmp/.ICE-unix/2093
+SESSION_MANAGER = local/cykx-virtual-machine:@/tmp/.ICE-unix/1813,unix/cykx-virtual-machine:/tmp/.ICE-unix/1813
 # automatic
 *F = $(notdir $*)
 # environment
@@ -129,7 +129,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/13b9e643_9e00_44da_83f5_98984713d6d0
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/523a6505_8eec_43cf_982c_e881ab4fc27c
 # environment
 MAKELEVEL := 0
 # default
@@ -185,7 +185,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 2392
+SYSTEMD_EXEC_PID = 2102
 # environment
 DISPLAY = :0
 # environment
@@ -278,8 +278,8 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # No implicit rules.
 
 # Files
- 
 
+ 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
@@ -328,6 +328,6 @@ GNUmakefile:
 # strcache performance: lookups = 20 / hit rate = 15%
 # hash-table stats:
 # Load=17/8192=0%, Rehash=0, Collisions=0/20=0%
-# Finished Make data base on Sun Aug 21 22:26:28 2022
+# Finished Make data base on Mon Aug 22 14:33:47 2022
 
  

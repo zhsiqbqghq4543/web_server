@@ -18,9 +18,9 @@ public:
         Http11
     };
     HttpRequest();
-    bool init_request_line(std::string &str, int begin, int end);
-    bool push_header_line(std::string &str, int begin, int end);
-    bool push_body_line(std::string &str, int begin);
+    bool init_request_line(std::string &str);
+    bool push_header_line(std::string &str);
+    bool push_body_line(std::string &str);
     void set_type(std::string s);
     void set_version(std::string s);
     std::string get_type();

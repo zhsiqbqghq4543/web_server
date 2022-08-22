@@ -1,6 +1,10 @@
+
 #include "Buffer.h"
+
 #include <sys/uio.h>
 #include <assert.h>
+#include <algorithm>
+#include <iostream>
 
 Buffer::Buffer() : read_index_(0), write_index_(0)
 {
@@ -44,13 +48,13 @@ int Buffer::read_fd(int fd)
     struct iovec vec[2];
     int writeable_size_back = data_vec_.size() - write_index_;
     vec[0].iov_base = get_ptr_(write_index_);
-    vec[0].iov_len = write_index_;
+    vec[0].iov_len = writeable_size_back;
+
     vec[1].iov_base = extra_buf;
     vec[1].iov_len = sizeof(extra_buf);
 
     int iovcnt = (writeable_size_back < sizeof(extra_buf)) ? 2 : 1;
     int n = readv(fd, vec, iovcnt);
-
     assert(n >= 0);
     if (n <= writeable_size_back)
     {
@@ -62,4 +66,33 @@ int Buffer::read_fd(int fd)
         push_data(extra_buf, sizeof(extra_buf));
     }
     return n;
+}
+
+int Buffer::get_one_line(char *&begin)
+{
+    char to_find[3] = "\r\n";
+    char *end = std::search(get_ptr_(read_index_), get_ptr_(write_index_), &to_find[0], &to_find[2]);
+
+    if (end == get_ptr_(write_index_))
+    {
+        begin = nullptr;
+        return 0;
+    }
+
+    begin = get_ptr_(read_index_);
+
+    read_index_ += (2 + end - begin);
+    if (read_index_ == write_index_)
+    {
+        read_index_ = 0;
+        write_index_ = 0;
+    }
+
+    return 2 + end - begin;
+}
+
+void Buffer::clear()
+{
+    read_index_ = 0;
+    write_index_ = 0;
 }
