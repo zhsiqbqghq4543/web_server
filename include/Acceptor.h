@@ -2,6 +2,7 @@
 
 #include "Eventloop.h"
 #include "Connector.h"
+#include"EventloopPool.h"
 
 #include <memory>
 #include <map>
@@ -12,7 +13,7 @@ class Acceptor
 {
 public:
     Acceptor(const char *ip, const char *port, Eventloop *main_loop);
-    void new_connection(Eventloop *loop);
+    void new_connection(EventloopPool *loop_pool);
     int get_fd();
     void set_nonnblocking(int fd);
     void rm_conn_from_map(std::string str);

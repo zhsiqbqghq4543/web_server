@@ -15,12 +15,13 @@ public:
     std::function<void()> rm_call_back_to_acceptor;
 
 public:
-    Connector(Eventloop *loop, sockaddr_in addr_, int new_fd, std::string &conn_name);
+    Connector(sockaddr_in addr_, std::string &conn_name);
     ~Connector();
     void new_message();
     void close_connection();
     std::string get_name();
     void conn_destroy();
+    void add_channel_to_eventloop(Eventloop *loop, int new_fd);
 
 private:
     std::string conn_name_;
@@ -29,5 +30,5 @@ private:
     Eventloop *loop_;
     Channel *channel_;
     HttpHandle *http_handle_;
-    Buffer* input_buffer_;
+    Buffer *input_buffer_;
 };

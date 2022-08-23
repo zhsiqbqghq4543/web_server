@@ -22,10 +22,11 @@ void Acceptor::set_nonnblocking(int fd)
 void Acceptor::rm_conn_from_map(std::string str)
 {
     // conn io
-    std::shared_ptr<Connector> Conn=this->conn_map_[str];
+    std::shared_ptr<Connector> Conn = this->conn_map_[str];
     this->conn_map_.erase(str);
 
     // main io
+    // todo change to  own thread eventloop
     main_loop_->push_func(
         std::bind(&Connector::conn_destroy, Conn));
 
@@ -44,6 +45,8 @@ Acceptor::Acceptor(const char *ip, const char *port, Eventloop *main_loop)
 
     this->server_fd_ = socket(PF_INET, SOCK_STREAM, 0);
 
+    std::cout << "new socket\tfd:\t" << this->server_fd_ << std::endl;
+
     this->set_nonnblocking(server_fd_);
 
     int ret = bind(server_fd_, (struct sockaddr *)&address_, sizeof(address_));
@@ -53,8 +56,15 @@ Acceptor::Acceptor(const char *ip, const char *port, Eventloop *main_loop)
     assert(ret != -1);
 }
 
-void Acceptor::new_connection(Eventloop *loop)
+void Acceptor::new_connection(EventloopPool *loop_pool)
 {
+
+    Eventloop *loop = loop_pool->get_eventloop();
+    std::cout << "get thread loop\taddress\t" << loop << std::endl;
+    // thread to change --> 1.new conn
+    // 2.add to map
+    // 3.callback
+    // 4. push_func to the own eventloop to new channel and loop.push_channel
     struct sockaddr_in client;
     socklen_t client_addrlength = sizeof(client);
 
@@ -68,13 +78,16 @@ void Acceptor::new_connection(Eventloop *loop)
     std::string name = inet_ntoa(client.sin_addr);
     name = name + ' ' + std::to_string(client.sin_port);
 
-    std::shared_ptr<Connector> s_new_conn = std::make_shared<Connector>(loop, client, new_fd, name);
+    std::shared_ptr<Connector> s_new_conn = std::make_shared<Connector>(client, name);
 
     s_new_conn.get()->rm_call_back_to_acceptor = std::bind(&Acceptor::rm_conn_from_map, this, name); // callback
 
     this->conn_map_[name] = std::move(s_new_conn);
-    
-    std::cout << name << " --->   is the   new conn :in    " << __TIME__ << "..." << std::endl;
+
+    std::cout << name << "\tnew\tconn\tbeen\tinstruct\tin\t" << __TIME__ << "..." << std::endl;
+
+    loop->push_func(std::bind(&Connector::add_channel_to_eventloop, conn_map_[name], loop, new_fd));
+    // runInloop
 }
 
 int Acceptor::get_fd()

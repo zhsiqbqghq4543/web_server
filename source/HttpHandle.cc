@@ -12,9 +12,9 @@ HttpHandle::HttpHandle() : request_state_(request_line_data)
 void HttpHandle::cout_message()
 {
     std::cout << "request message:  ";
-    std::cout << "\ntype :  " << http_request_.get()->get_type();
-    std::cout << "\nversion :  " << http_request_.get()->get_version();
-    std::cout << "\npath :  " << http_request_.get()->get_path() << std::endl;
+    std::cout << "||\ttype :  " << http_request_.get()->get_type();
+    std::cout << "||\tversion :  " << http_request_.get()->get_version();
+    std::cout << "||\tpath :  " << http_request_.get()->get_path() << std::endl;
 }
 
 bool HttpHandle::got_all()
@@ -24,19 +24,19 @@ bool HttpHandle::got_all()
 
 bool HttpHandle::recv_message(Buffer *input_buffer)
 {
-    
-    //std::cout << input_buffer->read_index_ << std::endl;
-    //std::cout << input_buffer->write_index_ << std::endl;
-    //for (auto c : input_buffer->data_vec_)
-        //std::cout << c;
-    //std::cout << std::endl;
-    //std::cout << input_buffer->data_vec_[0] << std::endl;
-    //std::cout << input_buffer->data_vec_[input_buffer->read_index_] << std::endl;
-    
+
+    // std::cout << input_buffer->read_index_ << std::endl;
+    // std::cout << input_buffer->write_index_ << std::endl;
+    // for (auto c : input_buffer->data_vec_)
+    // std::cout << c;
+    // std::cout << std::endl;
+    // std::cout << input_buffer->data_vec_[0] << std::endl;
+    // std::cout << input_buffer->data_vec_[input_buffer->read_index_] << std::endl;
+
     char *line_data = nullptr;
 
     int line_size = input_buffer->get_one_line(line_data);
-    //std::cout << line_size << std::endl;
+    // std::cout << line_size << std::endl;
     while (line_size != 0)
     {
         std::string recv_str(line_size, 'a');
@@ -44,7 +44,7 @@ bool HttpHandle::recv_message(Buffer *input_buffer)
         {
             recv_str[i] = line_data[i];
         }
-        //std::cout << recv_str << '\n';
+        // std::cout << recv_str << '\n';
         if (this->request_state_ == request_line_data)
         {
 

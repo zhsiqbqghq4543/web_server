@@ -8,9 +8,15 @@
 Eventloop::Eventloop() : runing(true),
                          current_active_channels_(nullptr)
 {
-    epoller_ = new Epoller(this);
-    this->active_channels_.reserve(1000000);
     this->event_fd_ = eventfd(0, EFD_NONBLOCK);
+
+    //will epollctl eventfd
+    epoller_ = new Epoller(this);
+    std::cout << "new epoller  fd:\t" << this->epoller_->get_epollfd() << std::endl;
+
+    this->active_channels_.reserve(1000000);
+
+    std::cout << "new event  fd:\t" << this->event_fd_ << std::endl;
 }
 
 void Eventloop::push_Channel(Channel *Channel)

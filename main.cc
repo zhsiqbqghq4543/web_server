@@ -1,7 +1,9 @@
 #include "Acceptor.h"
 #include "Server.h"
 #include "Eventloop.h"
+#include "EventloopPool.h"
 
+#define __thread_nun__ 2
 
 int main(int argc, char **argv)
 {
@@ -9,8 +11,9 @@ int main(int argc, char **argv)
     const char *port = argv[2];
 
     Eventloop Eventloop_; // io #pool
+    EventloopPool Eventloop_pool_(&Eventloop_, __thread_nun__);
 
-    Server server_(&Eventloop_, ip, port);
+    Server server_(&Eventloop_pool_, ip, port);
 
     Eventloop_.loop();
 
