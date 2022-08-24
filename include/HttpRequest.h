@@ -26,6 +26,7 @@ public:
     std::string get_type();
     std::string get_version();
     std::string get_path();
+    std::string get_send_data();
 
 private:
     RequestType request_type_;

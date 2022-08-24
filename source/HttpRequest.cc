@@ -1,6 +1,8 @@
 #include "HttpRequest.h"
 
 #include <iostream>
+#include <fcntl.h>
+#include <unistd.h>
 
 HttpRequest::HttpRequest() : request_type_(Null),
                              version_(Unknown)
@@ -60,7 +62,7 @@ bool HttpRequest::init_request_line(std::string &str)
     int ptr_r = str.find(' ');
     this->set_type(str.substr(0, ptr_r));
 
-     //std::cout << str.substr(0, ptr_r) << std::endl;
+    // std::cout << str.substr(0, ptr_r) << std::endl;
 
     int ptr_l = str.find('/');
     ptr_r = str.find(' ', ptr_l) - 1;
@@ -68,7 +70,7 @@ bool HttpRequest::init_request_line(std::string &str)
 
     // std::cout << str.substr(ptr_l, ptr_r - ptr_l + 1) << std::endl;
 
-    this->set_version(str.substr(str.size()-5, 3));
+    this->set_version(str.substr(str.size() - 5, 3));
 
     // std::cout << str.substr(str.size()-5, 3) << std::endl;
 
@@ -87,4 +89,36 @@ bool HttpRequest::push_body_line(std::string &str)
 {
     // TODO
     return true;
+}
+
+std::string HttpRequest::get_send_data()
+{
+    if (this->get_path() == "/")
+    {
+        this->path_ = "/login";
+    }
+
+    std::string file_path = "../data" + this->get_path() + ".html";
+    int send_html_fd = open(file_path.c_str(), O_RDONLY);
+    if (send_html_fd == -1)
+    {
+        this->path_ = "/404";
+        return get_send_data();
+    }
+    int size = lseek(send_html_fd, 0, SEEK_END);
+    lseek(send_html_fd, 0, SEEK_SET);
+
+    std::string html_data(size + 5, ' ');
+
+    read(send_html_fd, &*html_data.begin(), html_data.size());
+
+    std::string send_data;
+    send_data.reserve(4000);
+    send_data = "HTTP/" + this->get_version() + " 200 OK\r\n";
+    send_data += "Server: Ubuntu\r\n";
+    send_data += "Content-Type: text/html; charset=UTF-8\r\n";
+    send_data += "Content-Length: " + std::to_string(size) + "\r\n\r\n";
+    send_data += html_data;
+
+    return std::move(send_data);
 }

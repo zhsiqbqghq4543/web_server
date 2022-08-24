@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <unistd.h>
 
 Connector::Connector(sockaddr_in addr, std::string &conn_name)
     : addr_(addr), conn_name_(conn_name)
@@ -62,6 +63,11 @@ void Connector::new_message()
     if (this->http_handle_->got_all() == true)
     {
         std::cout << "thread loop address\t" << loop_ << "now http message got_all:    \n";
+
+        std::string send_str = http_handle_->get_send_data();
+
+        write(this->channel_->get_fd(), &*send_str.begin(), send_str.size());
+
         this->http_handle_->cout_message();
         // request
     }

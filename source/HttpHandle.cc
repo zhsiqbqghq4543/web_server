@@ -75,3 +75,8 @@ bool HttpHandle::recv_message(Buffer *input_buffer)
     }
     return true;
 }
+
+std::string HttpHandle::get_send_data()
+{
+    return this->http_request_->get_send_data();
+}

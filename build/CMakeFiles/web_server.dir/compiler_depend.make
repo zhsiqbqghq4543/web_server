@@ -1247,7 +1247,15 @@ CMakeFiles/web_server.dir/source/Connector.cc.o: ../source/Connector.cc \
   /usr/include/c++/11/bits/basic_ios.tcc \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
-  /usr/include/c++/11/bits/istream.tcc
+  /usr/include/c++/11/bits/istream.tcc \
+  /usr/include/unistd.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+  /usr/include/linux/close_range.h
 
 CMakeFiles/web_server.dir/source/Epoller.cc.o: ../source/Epoller.cc \
   /usr/include/stdc-predef.h \
@@ -2108,7 +2116,22 @@ CMakeFiles/web_server.dir/source/HttpRequest.cc.o: ../source/HttpRequest.cc \
   /usr/include/c++/11/bits/basic_ios.tcc \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
-  /usr/include/c++/11/bits/istream.tcc
+  /usr/include/c++/11/bits/istream.tcc \
+  /usr/include/fcntl.h \
+  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
+  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
+  /usr/include/linux/falloc.h \
+  /usr/include/x86_64-linux-gnu/bits/stat.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
+  /usr/include/unistd.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+  /usr/include/linux/close_range.h
 
 CMakeFiles/web_server.dir/source/Server.cc.o: ../source/Server.cc \
   /usr/include/stdc-predef.h \

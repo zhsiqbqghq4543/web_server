@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Aug 23 16:02:43 2022
+# Make data base, printed on Wed Aug 24 21:34:33 2022
 
 # Variables
 
@@ -59,19 +61,19 @@ VSCODE_CODE_CACHE_PATH = /home/cykx/.config/Code/CachedData/e4503b30fc78200f846c
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.M5WQR1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.LIJBR1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.828
+GNOME_TERMINAL_SERVICE = :1.124
 # makefile
 MAKEFLAGS = pqrR
 # makefile
 CURDIR := /home/cykx/Desktop/web_server/web_server
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # automatic
@@ -97,13 +99,13 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 9042
+VSCODE_PID = 4332
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/cykx-virtual-machine:@/tmp/.ICE-unix/1808,unix/cykx-virtual-machine:/tmp/.ICE-unix/1808
+SESSION_MANAGER = local/cykx-virtual-machine:@/tmp/.ICE-unix/1989,unix/cykx-virtual-machine:/tmp/.ICE-unix/1989
 # automatic
 *F = $(notdir $*)
 # environment
@@ -127,7 +129,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/cee18097_2240_4a74_9391_8f2dec525c13
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/d7267cff_ece5_4891_b717_d6cb97ec5526
 # environment
 MAKELEVEL := 0
 # default
@@ -183,7 +185,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 2091
+SYSTEMD_EXEC_PID = 2287
 # environment
 DISPLAY = :0
 # environment
@@ -277,8 +279,6 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Files
  
-make: *** No rule to make target 'all'.  Stop.
-
 
 # Not a target:
 Makefile:
@@ -328,6 +328,6 @@ GNUmakefile:
 # strcache performance: lookups = 20 / hit rate = 15%
 # hash-table stats:
 # Load=17/8192=0%, Rehash=0, Collisions=0/20=0%
-# Finished Make data base on Tue Aug 23 16:02:44 2022
+# Finished Make data base on Wed Aug 24 21:34:33 2022
 
  
