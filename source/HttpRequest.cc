@@ -120,5 +120,6 @@ std::string HttpRequest::get_send_data()
     send_data += "Content-Length: " + std::to_string(size) + "\r\n\r\n";
     send_data += html_data;
 
+    close(send_html_fd);
     return std::move(send_data);
 }

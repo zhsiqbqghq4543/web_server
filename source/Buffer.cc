@@ -5,12 +5,20 @@
 #include <assert.h>
 #include <algorithm>
 #include <iostream>
+#include <unistd.h>
 
 Buffer::Buffer() : read_index_(0), write_index_(0)
 {
     data_vec_.resize(1024);
 }
-
+bool Buffer::is_empty()
+{
+    if (read_index_ == 0 && write_index_ == 0)
+    {
+        return true;
+    }
+    return false;
+}
 char *Buffer::get_ptr_(int index)
 {
     return &(*data_vec_.begin()) + index;
@@ -66,6 +74,18 @@ int Buffer::read_fd(int fd)
         push_data(extra_buf, sizeof(extra_buf));
     }
     return n;
+}
+
+void Buffer::send_fd(int fd)
+{
+    int size = write(fd, get_ptr_(read_index_), write_index_ - read_index_);
+    std::cout << "buffer send\t" << size << std::endl;
+    read_index_ += size;
+    if (read_index_ == write_index_)
+    {
+        clear();
+    }
+    return;
 }
 
 int Buffer::get_one_line(char *&begin)

@@ -36,7 +36,6 @@ bool HttpHandle::recv_message(Buffer *input_buffer)
     char *line_data = nullptr;
 
     int line_size = input_buffer->get_one_line(line_data);
-    // std::cout << line_size << std::endl;
     while (line_size != 0)
     {
         std::string recv_str(line_size, 'a');
@@ -44,7 +43,7 @@ bool HttpHandle::recv_message(Buffer *input_buffer)
         {
             recv_str[i] = line_data[i];
         }
-        // std::cout << recv_str << '\n';
+        //std::cout << recv_str;
         if (this->request_state_ == request_line_data)
         {
 

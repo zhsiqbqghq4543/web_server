@@ -3,6 +3,7 @@
 
 #include <assert.h>
 #include <iostream>
+#include <unistd.h>
 
 Epoller::Epoller(Eventloop *loop_) : owner_loop_(loop_)
 {
@@ -31,11 +32,13 @@ void Epoller::push_channel(Channel *Channel)
 
 void Epoller::epoll(std::vector<Channel *> &avtive_channels_)
 {
+    //std::cout << "epollfd\t" << epollfd_ << "\twaiting" << std::endl;
 
     int events_num = epoll_wait(this->epollfd_,
                                 &*this->events_.begin(),
                                 static_cast<int>(events_.size()),
                                 -1);
+    //std::cout << "epollfd\t" << epollfd_ << "\tok" << events_num << std::endl;
     assert(events_num >= 0);
     if (events_num > 0)
     {
@@ -55,11 +58,13 @@ void Epoller::fill_active_channels(int event_num_,
         int fd = this->events_[i].data.fd;
 
         auto iterator = this->channel_map_.find(fd);
+        //std::cout << fd << std::endl;
         if (iterator != this->channel_map_.end())
         {
             Channel *channel_topush = iterator->second;
 
             channel_topush->set_revents(events_[i].events);
+            //std::cout << (events_[i].events & EPOLLOUT) << std::endl;
             active_channels_.push_back(channel_topush);
         }
     }
@@ -69,7 +74,7 @@ void Epoller::rm_channel(int fd)
 {
     this->channel_map_.erase(fd);
     epoll_ctl(this->epollfd_, EPOLL_CTL_DEL, fd, NULL);
-    std::cout <<"delete from epoll : fd\t"<< fd << "\thas\tclosed\n";
+    std::cout << "delete from epoll : fd\t" << fd << "\thas\tclosed\t";
 }
 
 int Epoller::get_epollfd()

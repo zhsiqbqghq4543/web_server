@@ -24,13 +24,23 @@ void Channel::set_read_callback(std::function<void()> cb)
 {
     this->read_call_back = std::move(cb);
 }
-
+void Channel::set_write_callback(std::function<void()> cb)
+{
+    this->write_call_back = std::move(cb);
+}
 void Channel::handle_event()
 {
-    if (revents_ && EPOLLIN)
+    // printf("\n%dchannel handle event\t\n",fd_);
+    if (revents_ & EPOLLOUT)
+    {
+        // printf("\nEPOLLOUT\n");
+        this->write_call_back();
+    }
+    else if (revents_ & EPOLLIN)
     {
         this->read_call_back();
     }
+    // printf("\n%dchannel handle event ok\t\n",fd_);
     return;
 }
 

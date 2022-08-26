@@ -12,7 +12,8 @@ public:
     int read_fd(int fd);
     int get_one_line(char *&begin);
     void clear();
-
+    bool is_empty();
+    void send_fd(int fd);
     std::vector<char> data_vec_;
     int read_index_;  //[0,read_index) has been read
     int write_index_; //[read , write) can be   read

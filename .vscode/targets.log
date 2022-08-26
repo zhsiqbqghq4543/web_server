@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Aug 24 21:34:33 2022
+# Make data base, printed on Fri Aug 26 22:44:25 2022
 
 # Variables
 
@@ -61,19 +61,19 @@ VSCODE_CODE_CACHE_PATH = /home/cykx/.config/Code/CachedData/e4503b30fc78200f846c
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.LIJBR1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.C2UMR1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.124
+GNOME_TERMINAL_SERVICE = :1.101
 # makefile
 MAKEFLAGS = pqrR
 # makefile
 CURDIR := /home/cykx/Desktop/web_server/web_server
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # automatic
@@ -99,13 +99,13 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 4332
+VSCODE_PID = 5291
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/cykx-virtual-machine:@/tmp/.ICE-unix/1989,unix/cykx-virtual-machine:/tmp/.ICE-unix/1989
+SESSION_MANAGER = local/cykx-virtual-machine:@/tmp/.ICE-unix/1797,unix/cykx-virtual-machine:/tmp/.ICE-unix/1797
 # automatic
 *F = $(notdir $*)
 # environment
@@ -129,7 +129,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/d7267cff_ece5_4891_b717_d6cb97ec5526
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/20b0014a_8ba1_48d9_b680_9c319fa72846
 # environment
 MAKELEVEL := 0
 # default
@@ -185,7 +185,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 2287
+SYSTEMD_EXEC_PID = 2083
 # environment
 DISPLAY = :0
 # environment
@@ -269,9 +269,9 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 2051, inode 3408747): 9 files, no impossibilities.
+# . (device 2051, inode 3408747): 10 files, no impossibilities.
 
-# 9 files, no impossibilities in 1 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -322,12 +322,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 17 / storage = 147 B / avg = 8 B
-# current buf: size = 8162 B / used = 147 B / count = 17 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 18 / storage = 152 B / avg = 8 B
+# current buf: size = 8162 B / used = 152 B / count = 18 / avg = 8 B
 
-# strcache performance: lookups = 20 / hit rate = 15%
+# strcache performance: lookups = 21 / hit rate = 14%
 # hash-table stats:
-# Load=17/8192=0%, Rehash=0, Collisions=0/20=0%
-# Finished Make data base on Wed Aug 24 21:34:33 2022
+# Load=18/8192=0%, Rehash=0, Collisions=0/21=0%
+# Finished Make data base on Fri Aug 26 22:44:25 2022
 
  

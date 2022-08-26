@@ -18,27 +18,31 @@ Connector::Connector(sockaddr_in addr, std::string &conn_name)
     this->http_handle_ = new HttpHandle();
     // buffer
     this->input_buffer_ = new Buffer();
+    // buffer
+    this->output_buffer_ = new Buffer();
 }
 Connector::~Connector()
 {
+    close(this->channel_->get_fd());
     delete this->channel_;
     delete this->http_handle_;
     delete this->input_buffer_;
-    std::cout << "\n"
-              << conn_name_ << "\tconnector\thas\tbeen\tdestroyed" << std::endl;
+    delete this->output_buffer_;
+
+    std::cout << conn_name_ << "\tconnector\thas\tbeen\tdestroyed" << std::endl;
 }
 
 void Connector::conn_destroy()
 {
-    std::cout << "destroying...\n";
+    //std::cout << "destroying...\n";
 }
 
 void Connector::close_connection()
 {
-    // self io rm map  and  main io rm conn
-    this->rm_call_back_to_acceptor();
     // self io
     this->loop_->rm_channel(this->channel_->get_fd());
+    // self io rm map  and  main io rm conn
+    this->rm_call_back_to_acceptor();
 }
 
 void Connector::new_message()
@@ -66,10 +70,36 @@ void Connector::new_message()
 
         std::string send_str = http_handle_->get_send_data();
 
-        write(this->channel_->get_fd(), &*send_str.begin(), send_str.size());
+        int size = write(this->channel_->get_fd(), &*send_str.begin(), send_str.size());
+        if (size != send_str.size())
+        {
+            this->output_buffer_->push_data(&*(send_str.begin() + size), send_str.size() - size);
+            int epoll_fd = this->loop_->epoller_->get_epollfd();
+            epoll_event event;
+            event.data.fd = this->channel_->get_fd();
+            event.events = EPOLLOUT | EPOLLIN;
+            // std::cout << epoll_fd << ' ' << this->channel_->get_fd() << std::endl;
+            //  std::cout << epoll_ctl(epoll_fd, EPOLL_CTL_DEL, this->channel_->get_fd(), &event) << std::endl;
+            // std::cout << epoll_ctl(epoll_fd, EPOLL_CTL_MOD, this->channel_->get_fd(), &event) << std::endl;
 
-        this->http_handle_->cout_message();
-        // request
+            std::cout << send_str.size() << "\tsize has send\t" << size << std::endl;
+        }
+        // this->http_handle_->cout_message();
+        //  request
+    }
+}
+
+void Connector::send_message()
+{
+    std::cout << "Connector::send_message()" << std::endl;
+    this->output_buffer_->send_fd(this->channel_->get_fd());
+    if (this->output_buffer_->is_empty())
+    {
+        int epoll_fd = this->loop_->epoller_->get_epollfd();
+        epoll_event event;
+        event.data.fd = this->channel_->get_fd();
+        event.events = EPOLLIN;
+        epoll_ctl(epoll_fd, EPOLL_CTL_MOD, this->channel_->get_fd(), &event);
     }
 }
 
@@ -90,5 +120,8 @@ void Connector::add_channel_to_eventloop(Eventloop *loop, int new_fd)
     channel_->set_read_callback(
         std::bind(&Connector::new_message, this));
 
-    std::cout << "new\tConn\tadded\tto\tloop\t" << std::endl;
+    channel_->set_write_callback(
+        std::bind(&Connector::send_message, this));
+
+    // std::cout << "new\tConn\tadded\tto\tloop\t" << std::endl;
 }

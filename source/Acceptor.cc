@@ -84,7 +84,7 @@ void Acceptor::new_connection(EventloopPool *loop_pool)
 
     this->conn_map_[name] = std::move(s_new_conn);
 
-    std::cout << name << "\tnew\tconn\tbeen\tinstruct\tin\t" << __TIME__ << "..." << std::endl;
+    std::cout << name << "\t"<<new_fd<<"\tnew\tconn\tbeen\tinstruct\tin\t" << __TIME__ << "..." << std::endl;
 
     loop->push_func(std::bind(&Connector::add_channel_to_eventloop, conn_map_[name], loop, new_fd));
     // runInloop
