@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Aug 26 22:44:25 2022
+# Make data base, printed on Sun Aug 28 15:49:13 2022
 
 # Variables
 
@@ -61,13 +61,13 @@ VSCODE_CODE_CACHE_PATH = /home/cykx/.config/Code/CachedData/e4503b30fc78200f846c
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.C2UMR1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.RIULR1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.101
+GNOME_TERMINAL_SERVICE = :1.100
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -99,13 +99,13 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 5291
+VSCODE_PID = 3036
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/cykx-virtual-machine:@/tmp/.ICE-unix/1797,unix/cykx-virtual-machine:/tmp/.ICE-unix/1797
+SESSION_MANAGER = local/cykx-virtual-machine:@/tmp/.ICE-unix/1815,unix/cykx-virtual-machine:/tmp/.ICE-unix/1815
 # automatic
 *F = $(notdir $*)
 # environment
@@ -129,7 +129,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/20b0014a_8ba1_48d9_b680_9c319fa72846
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/3997d25f_ba57_49d6_82c6_74b504877483
 # environment
 MAKELEVEL := 0
 # default
@@ -185,7 +185,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 2083
+SYSTEMD_EXEC_PID = 2093
 # environment
 DISPLAY = :0
 # environment
@@ -328,6 +328,6 @@ GNUmakefile:
 # strcache performance: lookups = 21 / hit rate = 14%
 # hash-table stats:
 # Load=18/8192=0%, Rehash=0, Collisions=0/21=0%
-# Finished Make data base on Fri Aug 26 22:44:25 2022
+# Finished Make data base on Sun Aug 28 15:49:13 2022
 
  
