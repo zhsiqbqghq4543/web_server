@@ -8,10 +8,9 @@ Server::Server(EventloopPool *loop_pool,
     : acceptor_(ip, port, loop_pool->get_main_eventloop()), // socket bind listen
       accept_channel_(loop_pool->get_main_eventloop())
 {
-
   accept_channel_.set_fd(acceptor_.get_fd()); // channel
 
-    // channel to eventloop (epoll)
+  // channel to eventloop (epoll)
   loop_pool->get_main_eventloop()->push_Channel(&this->accept_channel_);
 
   // set channel_read_call_back

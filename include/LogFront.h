@@ -1,12 +1,13 @@
 #pragma once
-#define LOG_TRACE                                                     \
-    if (LogFrontAbstract::get_log_level() <= LogFrontAbstract::TRACE) \
+
+#define LOG_TRACE                                                          \
+    if (LogFrontAbstract::get_log_level() <= (int)LogFrontAbstract::TRACE) \
     LogFrontAbstract(__FILE__, __LINE__, LogFrontAbstract::TRACE, __func__).stream()
-#define LOG_DEBUG                                                     \
-    if (LogFrontAbstract::get_log_level() <= LogFrontAbstract::DEBUG) \
+#define LOG_DEBUG                                                          \
+    if (LogFrontAbstract::get_log_level() <= (int)LogFrontAbstract::DEBUG) \
     LogFrontAbstract(__FILE__, __LINE__, LogFrontAbstract::DEBUG, __func__).stream()
-#define LOG_INFO                                                     \
-    if (LogFrontAbstract::get_log_level() <= LogFrontAbstract::INFO) \
+#define LOG_INFO                                                          \
+    if (LogFrontAbstract::get_log_level() <= (int)LogFrontAbstract::INFO) \
     LogFrontAbstract(__FILE__, __LINE__).stream()
 #define LOG_WARN LogFrontAbstract(__FILE__, __LINE__, LogFrontAbstract::WARN).stream()
 #define LOG_ERROR LogFrontAbstract(__FILE__, __LINE__, LogFrontAbstract::ERROR).stream()
@@ -16,12 +17,19 @@
 
 #include <string>
 #include <iostream>
+#include <memory>
+#include <functional>
 
 class LogFrontAbstract;
 class LogFrontSpecial;
 class LogStream;
 
-extern LogFrontAbstract::LogLevel g_logLevel; // shengming
+namespace log_global
+{
+    extern int g_logLevel;
+    extern void (*func_ptr)(std::string &str);
+
+}
 
 class LogFrontAbstract
 {
@@ -38,22 +46,39 @@ public:
     };
 
 public:
-    LogFrontAbstract(std::string file_name, int line_num, LogLevel level, std::string func_name);
+    LogFrontAbstract(std::string file_name,
+                     int line_num,
+                     LogLevel level,
+                     std::string func_name);
     ~LogFrontAbstract();
     LogStream &stream();
-    LogLevel get_log_level();
+    static int get_log_level()
+    {
+
+        return log_global::g_logLevel;
+    }
+
     void set_log_level(LogLevel level);
+    std::string get_level_str(LogLevel level);
 
 private:
-    LogFrontSpecial log_special_;
+    std::unique_ptr<LogFrontSpecial> log_special_;
 };
 
 class LogFrontSpecial
 {
 public:
+    LogFrontSpecial(std::string &file_name,
+                    int line_num,
+                    std::string level,
+                    int level_num);
+    void finish();
+    std::unique_ptr<LogStream> stream_;
+    int get_level_num();
+
 private:
-    LogStream stream_;
-    LogFrontAbstract::LogLevel level_;
+    int level_num_;
+    std::string level_;
     int line_num_;
     std::string file_name_;
 };
@@ -61,8 +86,12 @@ private:
 class LogStream
 {
 public:
-    LogStream &operator<<(std::string str);
-
+    LogStream();
+    LogStream &operator<<(std::string &&str);
+    LogStream &operator<<(std::string &str);
+    std::string &get_buffer();
+    // why not void : a<<b<<c need return not void
+    // why && : a tmp str --> canshu ,if not will copy
 private:
     std::string buffer_;
     int buffer_size_max_;

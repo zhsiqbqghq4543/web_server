@@ -1,5 +1,6 @@
 
 #include "Eventloop.h"
+#include "LogFront.h"
 
 #include <iostream>
 #include <sys/eventfd.h>
@@ -12,11 +13,11 @@ Eventloop::Eventloop() : runing(true),
 
     //will epollctl eventfd
     epoller_ = new Epoller(this);
-    std::cout << "new epoller  fd:\t" << this->epoller_->get_epollfd() << std::endl;
+    LOG_TRACE << "new epoller  fd:\t"+std::to_string(this->epoller_->get_epollfd());
 
     this->active_channels_.reserve(1000000);
-
-    std::cout << "new event  fd:\t" << this->event_fd_ << std::endl;
+    
+    LOG_TRACE << "new event  fd:\t"+std::to_string(this->event_fd_);
 }
 
 void Eventloop::push_Channel(Channel *Channel)
