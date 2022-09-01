@@ -1,5 +1,6 @@
 
 #include "Epoller.h"
+#include"LogFront.h"
 
 #include <assert.h>
 #include <iostream>
@@ -74,7 +75,7 @@ void Epoller::rm_channel(int fd)
 {
     this->channel_map_.erase(fd);
     epoll_ctl(this->epollfd_, EPOLL_CTL_DEL, fd, NULL);
-    std::cout << "delete from epoll : fd\t" << fd << "\thas\tclosed\t";
+    LOG_TRACE<< "delete from epoll : fd\t" +std::to_string(fd)+"\thas\tclosed\t";
 }
 
 int Epoller::get_epollfd()

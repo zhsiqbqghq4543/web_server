@@ -3,7 +3,7 @@
 
 #include <unistd.h>
 
-Channel::Channel(Eventloop *loop_) : fd_(-1), index_(-1), revents_(-1)
+Channel::Channel(Eventloop *loop_) : fd_(-1), revents_(-1)
 {
 }
 Channel::~Channel()

@@ -1,8 +1,10 @@
 #include "EventloopPool.h"
+#include "LogFront.h"
 
 void EventloopPool::thread_loop(std::shared_ptr<Eventloop> eventloop)
 {
-    std::cout << "thread\tbegin" << std::endl;
+
+    LOG_TRACE << "thread\tbegin";
     eventloop->loop();
 }
 

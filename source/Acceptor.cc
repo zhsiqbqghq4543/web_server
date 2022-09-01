@@ -1,6 +1,7 @@
 
 #include "Acceptor.h"
 #include "Connector.h"
+#include "LogFront.h"
 
 #include <string.h>
 #include <assert.h>
@@ -21,7 +22,7 @@ void Acceptor::set_nonnblocking(int fd)
 
 void Acceptor::rm_conn_from_map(std::string str)
 {
-    // conn io
+    // conn io //map is thread safe
     std::shared_ptr<Connector> Conn = this->conn_map_[str];
     this->conn_map_.erase(str);
 
@@ -45,7 +46,7 @@ Acceptor::Acceptor(const char *ip, const char *port, Eventloop *main_loop)
 
     this->server_fd_ = socket(PF_INET, SOCK_STREAM, 0);
 
-    std::cout << "new socket\tfd:\t" << this->server_fd_ << std::endl;
+    LOG_TRACE << "new socket   fd:\t" + std::to_string(this->server_fd_);
 
     this->set_nonnblocking(server_fd_);
 
@@ -60,7 +61,7 @@ void Acceptor::new_connection(EventloopPool *loop_pool)
 {
 
     Eventloop *loop = loop_pool->get_eventloop();
-    std::cout << "get thread loop\taddress\t" << loop << std::endl;
+    LOG_TRACE << "get thread loop\taddress\t";
     // thread to change --> 1.new conn
     // 2.add to map
     // 3.callback
@@ -73,6 +74,8 @@ void Acceptor::new_connection(EventloopPool *loop_pool)
                         &client_addrlength);
     assert(new_fd > 0);
 
+    LOG_TRACE << "new socket   fd:\t" +std::to_string(new_fd);
+
     this->set_nonnblocking(new_fd);
 
     std::string name = inet_ntoa(client.sin_addr);
@@ -84,7 +87,7 @@ void Acceptor::new_connection(EventloopPool *loop_pool)
 
     this->conn_map_[name] = std::move(s_new_conn);
 
-    std::cout << name << "\t"<<new_fd<<"\tnew\tconn\tbeen\tinstruct\tin\t" << __TIME__ << "..." << std::endl;
+    LOG_TRACE << name + "\t" + std::to_string(new_fd) + "\tnew\tconn\tbeen\tinstruct\tin\t" + __TIME__ + "...";
 
     loop->push_func(std::bind(&Connector::add_channel_to_eventloop, conn_map_[name], loop, new_fd));
     // runInloop

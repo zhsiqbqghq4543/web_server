@@ -1,5 +1,6 @@
 
 #include "Connector.h"
+#include "LogFront.h"
 
 #include <string.h>
 #include <stdio.h>
@@ -11,7 +12,7 @@
 #include <unistd.h>
 
 Connector::Connector(sockaddr_in addr, std::string &conn_name)
-    : addr_(addr), conn_name_(conn_name)
+    : addr_(addr), conn_name_(conn_name), timer_index_(-1)
 {
 
     // http_request
@@ -29,16 +30,26 @@ Connector::~Connector()
     delete this->input_buffer_;
     delete this->output_buffer_;
 
-    std::cout << conn_name_ << "\tconnector\thas\tbeen\tdestroyed" << std::endl;
+    LOG_TRACE << conn_name_ + "\tconnector\thas\tbeen\tdestroyed";
 }
 
 void Connector::conn_destroy()
 {
-    //std::cout << "destroying...\n";
+    LOG_TRACE << "destroying...";
 }
 
-void Connector::close_connection()
+void Connector::close_connection() // timer out zhudong close
 {
+    // self io
+    this->loop_->rm_channel(this->channel_->get_fd());
+    // self io rm map  and  main io rm conn
+    this->rm_call_back_to_acceptor();
+}
+
+void Connector::close_connection_and_timer() // beidong close
+{
+    // timerclose
+    loop_->delete_timer(this->timer_index_);
     // self io
     this->loop_->rm_channel(this->channel_->get_fd());
     // self io rm map  and  main io rm conn
@@ -49,11 +60,13 @@ void Connector::new_message()
 {
     int recv_size = this->input_buffer_->read_fd(this->channel_->get_fd());
     if (recv_size != 0)
-        std::cout << "thread loop address\t" << loop_ << "\trecv\tmessage\t" << recv_size << std::endl;
+    {
+        LOG_TRACE << "recv\tmessage\t" + std::to_string(recv_size);
+    }
     if (recv_size == 0)
     {
-        std::cout << "thread loop address\t" << loop_ << "\nget close message\n";
-        close_connection();
+        LOG_TRACE << "get\tclose message\t";
+        close_connection_and_timer();
 
         return;
     }
@@ -66,7 +79,7 @@ void Connector::new_message()
     }
     if (this->http_handle_->got_all() == true)
     {
-        std::cout << "thread loop address\t" << loop_ << "now http message got_all:    \n";
+        LOG_TRACE << "now http message got_all:";
 
         std::string send_str = http_handle_->get_send_data();
 
@@ -74,7 +87,7 @@ void Connector::new_message()
         if (size != send_str.size())
         {
             this->output_buffer_->push_data(&*(send_str.begin() + size), send_str.size() - size);
-            int epoll_fd = this->loop_->epoller_->get_epollfd();
+            int epoll_fd = this->loop_->get_epollfd();
             epoll_event event;
             event.data.fd = this->channel_->get_fd();
             event.events = EPOLLOUT | EPOLLIN;
@@ -82,7 +95,7 @@ void Connector::new_message()
             //  std::cout << epoll_ctl(epoll_fd, EPOLL_CTL_DEL, this->channel_->get_fd(), &event) << std::endl;
             // std::cout << epoll_ctl(epoll_fd, EPOLL_CTL_MOD, this->channel_->get_fd(), &event) << std::endl;
 
-            std::cout << send_str.size() << "\tsize has send\t" << size << std::endl;
+            LOG_TRACE << std::to_string(send_str.size()) + "\tsize has send" + std::to_string(size);
         }
         // this->http_handle_->cout_message();
         //  request
@@ -95,7 +108,7 @@ void Connector::send_message()
     this->output_buffer_->send_fd(this->channel_->get_fd());
     if (this->output_buffer_->is_empty())
     {
-        int epoll_fd = this->loop_->epoller_->get_epollfd();
+        int epoll_fd = this->loop_->get_epollfd();
         epoll_event event;
         event.data.fd = this->channel_->get_fd();
         event.events = EPOLLIN;
@@ -108,13 +121,11 @@ std::string Connector::get_name()
     return this->conn_name_;
 }
 
-void Connector::add_channel_to_eventloop(Eventloop *loop, int new_fd)
+void Connector::add_channel_to_eventloop(Eventloop *loop, int new_fd) // in thread io
 {
     loop_ = loop;
     channel_ = new Channel(loop);
     channel_->set_fd(new_fd);
-
-    loop->push_Channel(channel_);
 
     // channel_.set_read_callback();
     channel_->set_read_callback(
@@ -123,5 +134,10 @@ void Connector::add_channel_to_eventloop(Eventloop *loop, int new_fd)
     channel_->set_write_callback(
         std::bind(&Connector::send_message, this));
 
+    loop->push_Channel(channel_);
+
     // std::cout << "new\tConn\tadded\tto\tloop\t" << std::endl;
+    // now begin timer
+    std::shared_ptr<Connector> shared_ptr_conn = Connector::shared_from_this();
+    this->timer_index_ = loop->add_timer(60 * 5, std::bind(&Connector::close_connection, shared_ptr_conn));
 }

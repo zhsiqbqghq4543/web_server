@@ -5,19 +5,26 @@
 #include <iostream>
 #include <sys/eventfd.h>
 #include <unistd.h>
-
 Eventloop::Eventloop() : runing(true),
                          current_active_channels_(nullptr)
 {
+
     this->event_fd_ = eventfd(0, EFD_NONBLOCK);
 
-    //will epollctl eventfd
+    // will epollctl eventfd
     epoller_ = new Epoller(this);
-    LOG_TRACE << "new epoller  fd:\t"+std::to_string(this->epoller_->get_epollfd());
+    LOG_TRACE << "new epoller  fd:\t" + std::to_string(this->epoller_->get_epollfd());
 
     this->active_channels_.reserve(1000000);
-    
-    LOG_TRACE << "new event  fd:\t"+std::to_string(this->event_fd_);
+
+    LOG_TRACE << "new event    fd:\t" + std::to_string(this->event_fd_);
+
+    this->loop_timer_ = new Timer(this);
+    LOG_TRACE << "new timer    fd:\t" + std::to_string(loop_timer_->get_timer_fd());
+
+    //std::function<void()> func = []
+    //{ printf("timeout\n"); };
+    //loop_timer_->add_timeevent(3, func);
 }
 
 void Eventloop::push_Channel(Channel *Channel)
@@ -85,4 +92,19 @@ void Eventloop::rm_channel(int fd)
 int Eventloop::get_event_fd()
 {
     return this->event_fd_;
+}
+
+int Eventloop::get_epollfd()
+{
+    return epoller_->get_epollfd();
+}
+
+int Eventloop::add_timer(std::time_t timeout_s, std::function<void()> cb)
+{
+    return loop_timer_->add_timeevent(timeout_s, cb);
+}
+
+void Eventloop::delete_timer(int index)
+{
+    this->loop_timer_->delete_timeevent(index);
 }

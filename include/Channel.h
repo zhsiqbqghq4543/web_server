@@ -22,7 +22,6 @@ public:
 private:
     int revents_;
     int fd_;
-    int index_;
     std::function<void()> read_call_back;
     std::function<void()> write_call_back;
 };

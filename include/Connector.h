@@ -9,7 +9,7 @@
 #include <string>
 #include <functional>
 
-class Connector
+class Connector:public std::enable_shared_from_this<Connector>
 {
 public:
     std::function<void()> rm_call_back_to_acceptor;
@@ -19,12 +19,14 @@ public:
     ~Connector();
     void new_message();
     void close_connection();
+    void close_connection_and_timer();
     std::string get_name();
     void conn_destroy();
     void add_channel_to_eventloop(Eventloop *loop, int new_fd);
     void send_message();
-
+    void timer_out();
 private:
+    int timer_index_;
     std::string conn_name_;
     struct sockaddr_in addr_;
 
