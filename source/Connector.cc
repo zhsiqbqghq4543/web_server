@@ -29,7 +29,7 @@ Connector::~Connector()
     delete this->http_handle_;
     delete this->input_buffer_;
     delete this->output_buffer_;
-    std::cout << conn_name_ + "\tconnector\thas\tbeen\tdestroyed\n";
+    //std::cout << conn_name_ + "\tconnector\thas\tbeen\tdestroyed\n";
     LOG_TRACE << conn_name_ + "\tconnector\thas\tbeen\tdestroyed";
 }
 
@@ -99,7 +99,7 @@ void Connector::new_message()
             LOG_TRACE << std::to_string(send_str.size()) + "\tsize has send" + std::to_string(size);
         }
 
-        this->http_handle_->cout_message();
+        //this->http_handle_->cout_message();
         //  request
         close_connection_and_timer();
     }
