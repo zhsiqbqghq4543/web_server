@@ -67,7 +67,7 @@ bool HttpRequest::init_request_line(std::string &str)
     int ptr_l = str.find('/');
     ptr_r = str.find(' ', ptr_l) - 1;
     this->path_ = str.substr(ptr_l, ptr_r - ptr_l + 1);
-
+    //std::cout<<this->path_<<std::endl;
     // std::cout << str.substr(ptr_l, ptr_r - ptr_l + 1) << std::endl;
 
     this->set_version(str.substr(str.size() - 5, 3));
@@ -93,25 +93,27 @@ bool HttpRequest::push_body_line(std::string &str)
 
 std::string HttpRequest::get_send_data()
 {
+    //std::cout<<this->get_path()<<std::endl;
+
     if (this->get_path() == "/")
     {
-        this->path_ = "/login";
+        this->path_ = "/login.html";
     }
 
-    std::string file_path = "../data" + this->get_path() + ".html";
+    std::string file_path = "../data" + this->get_path();
     int send_html_fd = open(file_path.c_str(), O_RDONLY);
-    if (send_html_fd == -1)
+    if (send_html_fd == -1||this->path_ == "/404")
     {
-        this->path_ = "/404";
-        return get_send_data();
+        close(send_html_fd);
+        std::string send_data;
+        send_data = "HTTP/" + this->get_version() + " 404 Not Found\r\n";
+        send_data += "Content-Length: " + std::to_string(0) + "\r\n\r\n";
+        return send_data;
     }
     int size = lseek(send_html_fd, 0, SEEK_END);
     lseek(send_html_fd, 0, SEEK_SET);
-
     std::string html_data(size + 5, ' ');
-
     read(send_html_fd, &*html_data.begin(), html_data.size());
-
     std::string send_data;
     send_data.reserve(4000);
     send_data = "HTTP/" + this->get_version() + " 200 OK\r\n";

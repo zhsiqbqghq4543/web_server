@@ -1,99 +1,808 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:等线;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"等线 Light";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@等线";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@等线 Light";}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:等线;}
+h1
+	{mso-style-link:"标题 1 字符";
+	margin-top:17.0pt;
+	margin-right:0cm;
+	margin-bottom:16.5pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:240%;
+	page-break-after:avoid;
+	font-size:22.0pt;
+	font-family:等线;}
+h2
+	{mso-style-link:"标题 2 字符";
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:173%;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"等线 Light";}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:等线;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:21.0pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:等线;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-indent:21.0pt;
+	font-size:10.5pt;
+	font-family:等线;}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	line-height:107%;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"等线 Light";
+	color:#2F5496;}
+span.1
+	{mso-style-name:"标题 1 字符";
+	mso-style-link:"标题 1";
+	font-weight:bold;}
+span.2
+	{mso-style-name:"标题 2 字符";
+	mso-style-link:"标题 2";
+	font-family:"等线 Light";
+	font-weight:bold;}
+.MsoChpDefault
+	{font-family:等线;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
 
-        html {
-            height: 100%;
-        }
-
-        body {
-            height: 100%;
-        }
-
-        .container {
-            height: 100%;
-            background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
-        }
-
-        .login-wrapper {
-            background-color: #fff;
-            width: 358px;
-            height: 588px;
-            border-radius: 15px;
-            padding: 0 50px;
-            position: relative;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .header {
-            font-size: 38px;
-            font-weight: bold;
-            text-align: center;
-            line-height: 200px;
-        }
-
-        .input-item {
-            display: block;
-            width: 100%;
-            margin-bottom: 20px;
-            border: 0;
-            padding: 10px;
-            border-bottom: 1px solid rgb(128, 125, 125);
-            font-size: 15px;
-            outline: none;
-        }
-
-        .input-item:placeholder {
-            text-transform: uppercase;
-        }
-
-        .btn {
-            text-align: center;
-            padding: 10px;
-            width: 100%;
-            margin-top: 40px;
-            background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
-            color: #fff;
-        }
-
-        .msg {
-            text-align: center;
-            line-height: 88px;
-        }
-
-        a {
-            text-decoration-line: none;
-            color: #abc1ee;
-        }
-    </style>
 </head>
 
-<body>
-    <div class="container">
-        <div class="login-wrapper">
-            <div class="header">Login</div>
-            <div class="form-wrapper">
-                <input type="text" name="serdassssssssssord" placeholder="username" class="input-item">
-                <input type="password" name="serdassssssssssord" placeholder="password" class="input-item">
-                <div class="btn">Login</div>
-            </div>
-            <div class="msg">
-                Don't have account?
-                <a href="#">Sign up</a>
-            </div>
-        </div>
-    </div>
+<body lang=ZH-CN link="#0563C1" vlink="#954F72" style='word-wrap:break-word;
+text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoTocHeading>目录</p>
+
+<p class=MsoToc1><span lang=EN-US><a href="#_Toc125819635"><span lang=EN-US><span
+lang=EN-US>整体</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></span></p>
+
+<p class=MsoToc1><span lang=EN-US><a href="#_Toc125819636"><span lang=EN-US><span
+lang=EN-US>异步高性能日志库</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>3</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819637"><span lang=EN-US><span
+lang=EN-US>日志内容</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>3</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819638"><span lang=EN-US><span
+lang=EN-US>前端（得到一条完整的buffer</span></span><span lang=EN-US><span lang=EN-US>）</span></span><span
+style='color:windowtext;display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>3</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819639"><span lang=EN-US><span
+lang=EN-US>后端：写入磁盘</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>5</span></a></span></p>
+
+<p class=MsoToc1><span lang=EN-US><a href="#_Toc125819640"><span lang=EN-US><span
+lang=EN-US>线程池</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>7</span></a></span></p>
+
+<p class=MsoToc1><span lang=EN-US><a href="#_Toc125819641">Eventloop<span
+lang=EN-US><span lang=EN-US>类</span></span><span style='color:windowtext;
+display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>8</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819642"><span lang=EN-US><span
+lang=EN-US>任务</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>8</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819643"><span lang=EN-US><span
+lang=EN-US>整体阅览</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>9</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819644"><span lang=EN-US><span
+lang=EN-US>循环</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>10</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819645"><span lang=EN-US><span
+lang=EN-US>构造函数和构造流程</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>10</span></a></span></p>
+
+<p class=MsoToc1><span lang=EN-US><a href="#_Toc125819646">Epoller<span
+lang=EN-US><span lang=EN-US>类</span></span><span style='color:windowtext;
+display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>11</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819647"><span lang=EN-US><span
+lang=EN-US>作用</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>11</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819648"><span lang=EN-US><span
+lang=EN-US>构造函数</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>11</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819649"><span lang=EN-US><span
+lang=EN-US>获得活跃的事件</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>11</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819650">epoll_wait<span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>12</span></a></span></p>
+
+<p class=MsoToc1><span lang=EN-US><a href="#_Toc125819651">Timer<span
+lang=EN-US><span lang=EN-US>类</span></span><span style='color:windowtext;
+display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>12</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819652"><span lang=EN-US><span
+lang=EN-US>使用</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>12</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819653"><span lang=EN-US><span
+lang=EN-US>整体阅览</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>13</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819654"><span lang=EN-US><span
+lang=EN-US>构造函数</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>14</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819655"><span lang=EN-US><span
+lang=EN-US>超时</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>14</span></a></span></p>
+
+<p class=MsoToc1><span lang=EN-US><a href="#_Toc125819656">Channel<span
+lang=EN-US><span lang=EN-US>类</span></span><span style='color:windowtext;
+display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819657"><span lang=EN-US><span
+lang=EN-US>整体</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819658"><span lang=EN-US><span
+lang=EN-US>构造</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></span></p>
+
+<p class=MsoToc1><span lang=EN-US><a href="#_Toc125819659">Server<span
+lang=EN-US><span lang=EN-US>类</span></span><span style='color:windowtext;
+display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>16</span></a></span></p>
+
+<p class=MsoToc1><span lang=EN-US><a href="#_Toc125819660">Accepter<span
+lang=EN-US><span lang=EN-US>类</span></span><span style='color:windowtext;
+display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>17</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819661"><span lang=EN-US><span
+lang=EN-US>新连接</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>18</span></a></span></p>
+
+<p class=MsoToc1><span lang=EN-US><a href="#_Toc125819662">Connector<span
+lang=EN-US><span lang=EN-US>类</span></span><span style='color:windowtext;
+display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>18</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819663"><span lang=EN-US><span
+lang=EN-US>创建连接之后</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>20</span></a></span></p>
+
+<p class=MsoToc1><span lang=EN-US><a href="#_Toc125819664"><span lang=EN-US><span
+lang=EN-US>关闭连接</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>20</span></a></span></p>
+
+<p class=MsoToc1><span lang=EN-US><a href="#_Toc125819665">Buffer<span
+lang=EN-US><span lang=EN-US>类</span></span><span style='color:windowtext;
+display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>21</span></a></span></p>
+
+<p class=MsoToc2><span lang=EN-US><a href="#_Toc125819666"><span lang=EN-US><span
+lang=EN-US>读取数据</span></span><span style='color:windowtext;display:none;
+text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>22</span></a></span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<h1><a name="_Toc125819635">整体</a></h1>
+
+<p class=MsoNormal><span lang=EN-US><img width=463 height=529 id="图片 1"
+src="webserver.files/image001.png"></span></p>
+
+<h1><a name="_Toc125819636">异步高性能日志库</a></h1>
+
+<h2><a name="_Toc125819637">日志内容</a></h2>
+
+<p class=MsoNormal><span lang=EN-US><img width=553 height=307 id="图片 21"
+src="webserver.files/image002.png"></span></p>
+
+<h2><a name="_Toc125819638">前端（得到一条完整的<span lang=EN-US>buffer</span>）</a></h2>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>在程序任意需要日志的地方执行这个</p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=17 id="图片 2"
+src="webserver.files/image003.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>宏自动改变代码，新建一个类，传递这些参数</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=554 height=38 id="图片 3" src="webserver.files/image004.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>构造函数，构造一个<span lang=EN-US>log_special</span>类</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=554 height=97 id="图片 4" src="webserver.files/image005.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>log_special</span>是<span lang=EN-US>LogFrontAbstract</span>的唯一的成员</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=489 height=44 id="图片 5" src="webserver.files/image006.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>log_special</span>的构造函数，<span lang=EN-US>log_special</span>构造一个<span
+lang=EN-US>LogStream</span>类的对象</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=554 height=174 id="图片 6"
+src="webserver.files/image007.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>它负责存放全部的<span lang=EN-US>buffer</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=411 height=214 id="图片 7"
+src="webserver.files/image008.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=553 height=220 id="图片 10"
+src="webserver.files/image009.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>构造结束后调用这个，取出<span lang=EN-US>unique</span>智能指针，等于是让<span
+lang=EN-US>logstream</span>来接受<span lang=EN-US>&lt;&lt;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=482 height=86 id="图片 8" src="webserver.files/image010.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>在<span lang=EN-US>buffer</span>尾部加上这些内容</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=509 height=194 id="图片 9"
+src="webserver.files/image011.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>开始执行析构函数</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=472 height=118 id="图片 11"
+src="webserver.files/image012.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=554 height=57 id="图片 12"
+src="webserver.files/image013.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'>然后把日志写入后端</p>
+
+<h2><a name="_Toc125819639">后端：写入磁盘</a></h2>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>前端最后调用我们的</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=499 height=52 id="图片 13"
+src="webserver.files/image014.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>这个东西最早是默认<span lang=EN-US>cout</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=492 height=164 id="图片 14"
+src="webserver.files/image015.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>在<span lang=EN-US>main</span>函数里面设置了这个函数</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=456 height=195 id="图片 15"
+src="webserver.files/image016.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>会调用全局的后端日志对象的函数<span lang=EN-US>APPEND</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>构造函数</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=554 height=171 id="图片 16"
+src="webserver.files/image017.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>main</span>函数里面一个线程执行后端日志函数</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=554 height=25 id="图片 17"
+src="webserver.files/image018.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>前端调用函数条件变量唤醒</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=526 height=191 id="图片 20"
+src="webserver.files/image019.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>线程函数</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=554 height=204 id="图片 18"
+src="webserver.files/image020.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=554 height=257 id="图片 19"
+src="webserver.files/image021.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>被唤醒了之后只是<span lang=EN-US>swap</span>操作一下，然后就把锁还回去，这样临界区就很小</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>10.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span>如果日志大小大于<span
+lang=EN-US>1024000</span>就换一个文件滚动记录，然后直接写入</p>
+
+<h1><a name="_Toc125819640">线程池</a></h1>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=251 id="图片 22"
+src="webserver.files/image022.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>list</span>带着<span lang=EN-US>weak_ptr</span>用来分配线程</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=553 height=40 id="图片 23"
+src="webserver.files/image023.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>刚开始的时候分配指定数量的线程，给每个线程创建一个<span lang=EN-US>Eventloop</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=554 height=178 id="图片 24"
+src="webserver.files/image024.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'>然后让每个线程执行这个操作：带着<span
+lang=EN-US>shared_ptr</span>，<span lang=EN-US>epoll</span>等待分配任务</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=554 height=93 id="图片 25"
+src="webserver.files/image025.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>需要从线程池分配时候就这样：</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=554 height=340 id="图片 26"
+src="webserver.files/image026.png"></span></p>
+
+<h1><a name="_Toc125819641"><span lang=EN-US>Eventloop</span>类</a></h1>
+
+<h2><a name="_Toc125819642">任务</a></h2>
+
+<p class=MsoNormal><span lang=EN-US>one loop per thread</span></p>
+
+<h2><a name="_Toc125819643">整体阅览</a></h2>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>在<span lang=EN-US>main</span>函数里先创建了一个<span lang=EN-US>eventloop</span>，作为主要的<span
+lang=EN-US>io</span>线程</p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=354 id="图片 27"
+src="webserver.files/image027.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>整体</p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=378 id="图片 28"
+src="webserver.files/image028.png"></span></p>
+
+<h2><a name="_Toc125819644">循环</a></h2>
+
+<p class=MsoNormal>主要是通过<span lang=EN-US>epoll</span>的成员对象得到活跃的事件，然后执行事件的回调函数</p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>do_wake_up_func</span>是指其它地方传递过来的函数</p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=300 id="图片 29"
+src="webserver.files/image029.png"></span></p>
+
+<h2><a name="_Toc125819645">构造函数和构造流程</a></h2>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>构造函数</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=554 height=269 id="图片 30"
+src="webserver.files/image030.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>12</span>行新建一个事件<span lang=EN-US>fd</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=311 height=27 id="图片 32"
+src="webserver.files/image031.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>构造<span lang=EN-US>Epoller</span>对象</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US><img width=311 height=20 id="图片 33"
+src="webserver.files/image032.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>构造<span lang=EN-US>timer</span>对象</p>
+
+<p class=MsoNormal><span lang=EN-US><img width=338 height=19 id="图片 37"
+src="webserver.files/image033.png"></span></p>
+
+<h1><a name="_Toc125819646"><span lang=EN-US>Epoller</span>类</a></h1>
+
+<h2><a name="_Toc125819647">作用</a></h2>
+
+<p class=MsoNormal>负责<span lang=EN-US>epoll_wait</span>得到活跃的<span lang=EN-US>channel</span>事件，然后传递给<span
+lang=EN-US>eventloop</span>用</p>
+
+<h2><a name="_Toc125819648">构造函数</a></h2>
+
+<p class=MsoNormal><span lang=EN-US>epoll_create</span>和<span lang=EN-US>epoll_ctl</span></p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=156 id="图片 36"
+src="webserver.files/image034.png"></span></p>
+
+<h2><a name="_Toc125819649">获得活跃的事件</a></h2>
+
+<p class=MsoNormal>通过<span lang=EN-US>fd</span>从<span lang=EN-US>channelmap</span>中找到<span
+lang=EN-US>channel</span>然后填充<span lang=EN-US>revents</span></p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=284 id="图片 34"
+src="webserver.files/image035.png"></span></p>
+
+<h2><a name="_Toc125819650"><span lang=EN-US>epoll_wait</span></a></h2>
+
+<p class=MsoNormal>有事件就填充</p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=280 id="图片 35"
+src="webserver.files/image036.png"></span></p>
+
+<h1><a name="_Toc125819651"><span lang=EN-US>Timer</span>类</a></h1>
+
+<p class=MsoNormal>有点<span lang=EN-US>bug</span>，因为<span lang=EN-US>index</span>是递增的</p>
+
+<h2><a name="_Toc125819652">使用</a></h2>
+
+<p class=MsoNormal><span lang=EN-US><img width=446 height=60 id="图片 38"
+src="webserver.files/image037.png"></span></p>
+
+<h2><a name="_Toc125819653">整体阅览</a></h2>
+
+<p class=MsoNormal><span lang=EN-US><img width=490 height=268 id="图片 43"
+src="webserver.files/image038.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=232 id="图片 39"
+src="webserver.files/image039.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>把所有的超时都封装成一个<span lang=EN-US>channel</span>共用</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>hash</span>函数得到<span lang=EN-US>index</span>对应的<span
+lang=EN-US>timeevent</span>，记录了回调事件</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>小顶堆，存放<span lang=EN-US>weak_ptr</span>意味着如果事件取消了，延时删除，不需要主动马上堆中取出</p>
+
+<h2><a name="_Toc125819654">构造函数</a></h2>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=229 id="图片 40"
+src="webserver.files/image040.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>把<span lang=EN-US>timerfd</span>封装进一个<span lang=EN-US>channel</span>然后设置回调函数最后加入<span
+lang=EN-US>loop</span>中</p>
+
+<h2><a name="_Toc125819655">超时</a></h2>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=281 id="图片 41"
+src="webserver.files/image041.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-US><img width=541 height=171 id="图片 42"
+src="webserver.files/image042.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>使用小顶堆，如果堆顶已经过时间了就开始处理</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>如果定时事件已经取消，那么就不执行，否则执行回调函数</p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>然后把我们的<span lang=EN-US>timerfd</span>设置为堆顶的时间</p>
+
+<h1><a name="_Toc125819656"><span lang=EN-US>Channel</span>类</a></h1>
+
+<p class=MsoNormal>封装事件<span lang=EN-US>,</span>和回调</p>
+
+<h2><a name="_Toc125819657">整体</a></h2>
+
+<p class=MsoNormal><span lang=EN-US><img width=519 height=365 id="图片 44"
+src="webserver.files/image043.png"></span></p>
+
+<h2><a name="_Toc125819658">构造</a></h2>
+
+<p class=MsoNormal>默认构造是一片空，<span lang=EN-US>eventloop</span>的流程：</p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-indent:-18.0pt'><span
+lang=EN-US>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-indent:0cm'><span
+lang=EN-US><img width=459 height=78 id="图片 46"
+src="webserver.files/image044.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-indent:-18.0pt'><span
+lang=EN-US>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>设置<span lang=EN-US>fd</span>，在<span lang=EN-US>epoller</span>的<span
+lang=EN-US>channelmap</span>中加上然后<span lang=EN-US>epoll_ctl</span></p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-indent:0cm'><span
+lang=EN-US><img width=554 height=256 id="图片 47"
+src="webserver.files/image045.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-indent:0cm'>另外一个视角：新的连接到来了<span
+lang=EN-US>new channel</span>视角：</p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-indent:0cm'><span
+lang=EN-US><img width=554 height=207 id="图片 48"
+src="webserver.files/image046.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-indent:0cm'>后面就是执行上面那个视角的<span
+lang=EN-US>push_channel</span></p>
+
+<h1><a name="_Toc125819659"><span lang=EN-US>Server</span>类</a></h1>
+
+<p class=MsoNormal>管理<span lang=EN-US>accepter</span>，设置<span lang=EN-US>io</span>线程的一个<span
+lang=EN-US>channel</span>：新连接，把<span lang=EN-US>accepter</span>的函数绑定成回调</p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=179 id="图片 49"
+src="webserver.files/image047.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=226 id="图片 50"
+src="webserver.files/image048.png"></span></p>
+
+<h1><a name="_Toc125819660"><span lang=EN-US>Accepter</span>类</a></h1>
+
+<p class=MsoNormal>管理所有的连接，有一个<span lang=EN-US>Connector</span>的<span
+lang=EN-US>map</span>，同时是<span lang=EN-US>shared</span>的智能指针，在<span lang=EN-US>io</span>线程中新建连接</p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=231 id="图片 51"
+src="webserver.files/image049.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=303 id="图片 54"
+src="webserver.files/image050.png"></span></p>
+
+<p class=MsoNormal>构造函数就是<span lang=EN-US>bind listen</span></p>
+
+<h2><a name="_Toc125819661">新连接</a></h2>
+
+<p class=MsoNormal><span lang=EN-US><img width=553 height=328 id="图片 52"
+src="webserver.files/image051.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-US><img width=553 height=131 id="图片 53"
+src="webserver.files/image052.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-indent:-18.0pt'><span
+lang=EN-US>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>从线程池取出一个线程</p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-indent:-18.0pt'><span
+lang=EN-US>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>accept</span>然后设置非阻塞<span lang=EN-US>socket</span>，创建<span
+lang=EN-US>connector</span>，同时绑定回调函数，最后把<span lang=EN-US>addchannel</span>的任务交给某个线程</p>
+
+<h1><a name="_Toc125819662"><span lang=EN-US>Connector</span>类</a></h1>
+
+<p class=MsoNormal>负责一个连接</p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=456 id="图片 55"
+src="webserver.files/image053.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=196 id="图片 56"
+src="webserver.files/image054.png"></span></p>
+
+<h2><a name="_Toc125819663">创建连接之后</a></h2>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=217 id="图片 57"
+src="webserver.files/image055.png"></span></p>
+
+<p class=MsoNormal>设置回调，设置计时器，然后把回调函数</p>
+
+<p class=MsoNormal>此时引用计数为<span lang=EN-US>2</span>（<span lang=EN-US>timer</span>有一个，<span
+lang=EN-US>accepter</span>有一个）</p>
+
+<h1><a name="_Toc125819664">关闭连接</a></h1>
+
+<p class=MsoNormal>主动关闭的情况是先执行<span lang=EN-US>accepter</span>的回调从<span
+lang=EN-US>map</span>中删一个引用计数</p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=24 id="图片 59"
+src="webserver.files/image056.png"></span></p>
+
+<p class=MsoNormal>然后通知<span lang=EN-US>main</span>函数</p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=263 id="图片 60"
+src="webserver.files/image057.png"></span></p>
+
+<p class=MsoNormal>最后函数执行结束，从<span lang=EN-US>this</span>删除一个引用计数</p>
+
+<p class=MsoNormal>吊着一条命直到到了<span lang=EN-US>io</span>线程</p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=311 id="图片 58"
+src="webserver.files/image058.png"></span></p>
+
+<p class=MsoNormal>被动关闭不太一样，先从<span lang=EN-US>timer</span>删一个引用计数，再从<span
+lang=EN-US>map</span>中，最后吊着一条命</p>
+
+<h1><a name="_Toc125819665"><span lang=EN-US>Buffer</span>类</a></h1>
+
+<p class=MsoNormal><span lang=EN-US><img width=510 height=345 id="图片 61"
+src="webserver.files/image059.png"></span></p>
+
+<h2><a name="_Toc125819666">读取数据</a></h2>
+
+<p class=MsoNormal><span lang=EN-US><img width=553 height=420 id="图片 62"
+src="webserver.files/image060.png"></span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'>使用分散读，如果数据不多没有用到缓冲区就没事，否则就会往缓冲区中<span
+lang=EN-US>push_data</span></p>
+
+<p class=MsoNormal><span lang=EN-US><img width=554 height=316 id="图片 63"
+src="webserver.files/image061.png"></span></p>
+
+<p class=MsoNormal>如果不能直接追加屁股，就考虑两种情况：</p>
+
+<p class=MsoNormal><span lang=EN-US>1</span>是不用扩容就直接把现在的数据移动到前面去</p>
+
+<p class=MsoNormal><span lang=EN-US>2</span>扩容就先扩容再把数据移动，然后把标识打好</p>
+
+<p class=MsoNormal><span lang=EN-US>3</span>最后直接尾部追加</p>
+
+</div>
+
 </body>
 
 </html>

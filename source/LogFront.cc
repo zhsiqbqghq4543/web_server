@@ -14,7 +14,6 @@ namespace log_global
 
 }
 
-// LogFrontAbstract LogFrontAbstract LogFrontAbstract LogFrontAbstract LogFrontAbstract
 LogFrontAbstract::LogFrontAbstract(std::string file_name,
                                    int line_num,
                                    LogLevel level,

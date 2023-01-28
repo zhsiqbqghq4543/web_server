@@ -29,7 +29,7 @@ Connector::~Connector()
     delete this->http_handle_;
     delete this->input_buffer_;
     delete this->output_buffer_;
-
+    std::cout << conn_name_ + "\tconnector\thas\tbeen\tdestroyed\n";
     LOG_TRACE << conn_name_ + "\tconnector\thas\tbeen\tdestroyed";
 }
 
@@ -65,6 +65,7 @@ void Connector::new_message()
     }
     if (recv_size == 0)
     {
+        //std::cout << "get\tclose message\t\n";
         LOG_TRACE << "get\tclose message\t";
         close_connection_and_timer();
 
@@ -73,16 +74,16 @@ void Connector::new_message()
     if (this->http_handle_->recv_message(this->input_buffer_) == false)
     {
         const char *err = "HTTP/1.1 400 Bad Request\r\n\r\n";
-        send(this->channel_->get_fd(), err, sizeof(err), 0); // todo
-        // close
-        // shutdown()
+        send(this->channel_->get_fd(), err, sizeof(err), 0);
+        close_connection_and_timer();
+        return;
     }
     if (this->http_handle_->got_all() == true)
     {
         LOG_TRACE << "now http message got_all:";
 
         std::string send_str = http_handle_->get_send_data();
-
+        //try send, or use buffer
         int size = write(this->channel_->get_fd(), &*send_str.begin(), send_str.size());
         if (size != send_str.size())
         {
@@ -97,8 +98,10 @@ void Connector::new_message()
 
             LOG_TRACE << std::to_string(send_str.size()) + "\tsize has send" + std::to_string(size);
         }
-        // this->http_handle_->cout_message();
+
+        this->http_handle_->cout_message();
         //  request
+        close_connection_and_timer();
     }
 }
 

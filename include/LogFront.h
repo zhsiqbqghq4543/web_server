@@ -90,8 +90,6 @@ public:
     LogStream &operator<<(std::string &&str);
     LogStream &operator<<(std::string &str);
     std::string &get_buffer();
-    // why not void : a<<b<<c need return not void
-    // why && : a tmp str --> canshu ,if not will copy
 private:
     std::string buffer_;
     int buffer_size_max_;

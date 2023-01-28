@@ -9,7 +9,7 @@
 #include <ctime>
 #include <string.h>
 #include <functional>
-
+#include <unordered_map>
 #include "Eventloop.h"
 
 class TimeEvent
@@ -31,7 +31,6 @@ class Timer
 {
 private:
     typedef std::pair<std::time_t, std::weak_ptr<TimeEvent>> time_weak_pair;
-
     class judge_func_
     {
     public:
@@ -47,13 +46,10 @@ public:
 
 private:
     Eventloop *loop_; // weak_ptr
-
     int to_malloc_index_;
     std::time_t channel_out_time_;
-
     int timer_fd_;
     Channel *timer_channel_;
-
     std::unordered_map<int, std::shared_ptr<TimeEvent>> timerevent_hash_;
     std::priority_queue<std::pair<std::time_t, std::weak_ptr<TimeEvent>>, std::vector<time_weak_pair>, judge_func_> timerevent_heap_;
 };

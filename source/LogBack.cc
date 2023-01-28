@@ -17,6 +17,7 @@ void LogBack::append_to_buffer(std::string &str)
     if (log_buffer_.size() > 4096)
     {
         condition_bool_ = true;
+        this->condition_variable_class_.notify_one();
     }
 }
 

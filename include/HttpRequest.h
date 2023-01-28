@@ -31,7 +31,6 @@ public:
 private:
     RequestType request_type_;
     Version version_;
-
     std::string path_;
     std::vector<std::string> vec;
 };
